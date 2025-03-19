@@ -52,7 +52,8 @@ export const setupParallax = () => {
         if (elementTop <= windowHeight && elementTop >= -elementRect.height) {
           const speed = element.getAttribute('data-speed') || '0.5';
           const yPos = -(elementTop * parseFloat(speed));
-          element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+          // Cast to HTMLElement to access style property
+          (element as HTMLElement).style.transform = `translate3d(0, ${yPos}px, 0)`;
         }
       });
     };

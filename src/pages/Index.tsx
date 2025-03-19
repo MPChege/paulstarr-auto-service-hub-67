@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
-import { Wrench, PaintBucket, Tool, Settings, ArrowRight, Phone, Calendar, Users } from 'lucide-react';
+import { Wrench, PaintBucket, Settings, ArrowRight, Phone, Calendar, Users, Screwdriver } from 'lucide-react';
 import { setupScrollReveal } from '@/utils/animations';
 
 const Index: React.FC = () => {
@@ -34,7 +34,7 @@ const Index: React.FC = () => {
     {
       title: 'Regular Servicing',
       description: 'Routine maintenance to keep your vehicle running smoothly and prevent costly repairs in the future.',
-      icon: <Tool size={18} />,
+      icon: <Screwdriver size={18} />,
       image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3',
       features: ['Oil Changes', 'Filter Replacement', 'Fluid Checks', 'Safety Inspection'],
       pricing: '$80+',
