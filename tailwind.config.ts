@@ -63,19 +63,43 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for Paulstarr Auto Spares
+				// Updated colors for blue, yellow, and white theme
 				paulstarr: {
-					'50': '#f8f9fa',
-					'100': '#f1f3f5',
-					'200': '#e9ecef',
-					'300': '#dee2e6',
-					'400': '#ced4da',
-					'500': '#adb5bd',
-					'600': '#868e96',
-					'700': '#495057',
-					'800': '#343a40',
-					'900': '#212529',
-					'accent': '#991B1B',
+					'50': '#EBF8FF',
+					'100': '#D1EEFC',
+					'200': '#A7D8F0',
+					'300': '#7CC1E4',
+					'400': '#55AED7',
+					'500': '#3498DB',
+					'600': '#2A7AB0',
+					'700': '#1F5A83',
+					'800': '#173B56',
+					'900': '#0C1D2A',
+					'accent': '#2563EB',
+				},
+				blue: {
+					'50': '#EFF6FF', 
+					'100': '#DBEAFE', 
+					'200': '#BFDBFE', 
+					'300': '#93C5FD', 
+					'400': '#60A5FA', 
+					'500': '#3B82F6', 
+					'600': '#2563EB', 
+					'700': '#1D4ED8', 
+					'800': '#1E40AF', 
+					'900': '#1E3A8A'
+				},
+				yellow: {
+					'50': '#FEFCE8',
+					'100': '#FEF9C3',
+					'200': '#FEF08A',
+					'300': '#FDE047',
+					'400': '#FACC15',
+					'500': '#EAB308',
+					'600': '#CA8A04',
+					'700': '#A16207',
+					'800': '#854D0E',
+					'900': '#713F12'
 				}
 			},
 			borderRadius: {

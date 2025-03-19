@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { CalendarIcon, Clock, Car, Wrench, User, Mail, Phone, Check } from 'lucide-react';
 import { format } from 'date-fns';
@@ -56,7 +55,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   // Common car makes in Kenya
   const commonCarMakes = [
     'Toyota', 'Subaru', 'Mercedes-Benz', 'Nissan', 'Mitsubishi', 
-    'Honda', 'Mazda', 'Isuzu', 'Volkswagen', 'Land Rover'
+    'Honda', 'Mazda', 'Isuzu', 'Volkswagen', 'Land Rover', 'Lexus'
   ];
 
   // Car models based on make
@@ -66,38 +65,25 @@ const BookingForm: React.FC<BookingFormProps> = ({
         return [
           'Corolla', 'Fielder', 'Premio', 'Vitz', 'Prado', 
           'Land Cruiser', 'Hilux', 'Fortuner', 'RAV4', 'Wish', 
-          'Noah', 'Voxy', 'Hiace', 'Harrier', 'Probox', 'Succeed'
+          'Noah', 'Voxy', 'Hiace', 'Harrier', 'Probox', 'Succeed',
+          'Land Cruiser V8', 'Alphard', 'Crown', 'Mark X', 'Belta'
         ];
       case 'Subaru':
         return [
           'Forester', 'Outback', 'Impreza', 'Legacy', 'XV', 
-          'WRX', 'STI', 'Levorg'
+          'WRX', 'STI', 'Levorg', 'Crosstrek', 'Tribeca'
         ];
       case 'Mercedes-Benz':
         return [
           'C-Class', 'E-Class', 'S-Class', 'GLC', 'GLE',
-          'G-Wagon', 'ML', 'A-Class', 'B-Class'
+          'G-Wagon', 'ML', 'A-Class', 'B-Class', 'GLS',
+          'GLK', 'CLA', 'GLA', 'Maybach'
         ];
-      case 'Nissan':
+      case 'Lexus':
         return [
-          'X-Trail', 'Juke', 'Tiida', 'Note', 'Serena',
-          'Wingroad', 'Navara', 'Patrol', 'March', 'Sunny'
+          'LX 570', 'RX 350', 'IS 250', 'ES 350', 'GX 460',
+          'NX 200t', 'LS 460', 'RC 350', 'UX 200'
         ];
-      case 'Mitsubishi':
-        return [
-          'Pajero', 'Outlander', 'L200', 'Lancer', 'RVR', 
-          'Galant', 'Mirage', 'ASX'
-        ];
-      case 'Honda':
-        return ['Fit', 'CR-V', 'Civic', 'Accord', 'Freed', 'Vezel', 'Stream'];
-      case 'Mazda':
-        return ['Demio', 'Axela', 'Atenza', 'CX-5', 'CX-3', 'Bongo', 'Verisa'];
-      case 'Isuzu':
-        return ['D-Max', 'MU-X', 'FRR', 'NQR', 'ELF', 'FVZ'];
-      case 'Volkswagen':
-        return ['Golf', 'Tiguan', 'Touareg', 'Polo', 'Passat', 'Amarok', 'Jetta'];
-      case 'Land Rover':
-        return ['Range Rover', 'Discovery', 'Defender', 'Evoque', 'Freelander'];
       default:
         return [];
     }
@@ -162,21 +148,21 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <div 
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                   step >= i 
-                    ? 'bg-paulstarr-accent text-white' 
-                    : 'bg-paulstarr-100 text-paulstarr-400'
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-blue-100 text-blue-400'
                 }`}
               >
                 {step > i ? <Check size={18} /> : i}
               </div>
-              <span className={`mt-2 text-sm ${step >= i ? 'text-paulstarr-900' : 'text-paulstarr-400'}`}>
+              <span className={`mt-2 text-sm ${step >= i ? 'text-blue-900' : 'text-blue-400'}`}>
                 {i === 1 ? 'Service & Date' : i === 2 ? 'Vehicle Info' : 'Your Details'}
               </span>
             </div>
           ))}
         </div>
-        <div className="relative h-1 bg-paulstarr-100 mt-4">
+        <div className="relative h-1 bg-blue-100 mt-4">
           <div 
-            className="absolute h-full bg-paulstarr-accent transition-all duration-300"
+            className="absolute h-full bg-blue-600 transition-all duration-300"
             style={{ width: `${(step - 1) * 50}%` }}
           ></div>
         </div>
@@ -196,7 +182,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   {services.map((service) => (
                     <SelectItem key={service.id} value={service.id}>
                       <div className="flex items-center">
-                        <Wrench size={16} className="mr-2 text-paulstarr-accent" />
+                        <Wrench size={16} className="mr-2 text-blue-600" />
                         {service.name}
                       </div>
                     </SelectItem>
@@ -216,7 +202,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       !date && "text-muted-foreground"
                     )}
                   >
-                    <CalendarIcon className="mr-2 h-4 w-4 text-paulstarr-accent" />
+                    <CalendarIcon className="mr-2 h-4 w-4 text-blue-600" />
                     {date ? format(date, "PPP") : <span>Select date</span>}
                   </Button>
                 </PopoverTrigger>
@@ -239,7 +225,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <SelectTrigger id="time" className="w-full">
                   <SelectValue placeholder="Select time">
                     <div className="flex items-center">
-                      <Clock size={16} className="mr-2 text-paulstarr-accent" />
+                      <Clock size={16} className="mr-2 text-blue-600" />
                       {time || "Select time"}
                     </div>
                   </SelectValue>
@@ -248,7 +234,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   {timeSlots.map((slot) => (
                     <SelectItem key={slot} value={slot}>
                       <div className="flex items-center">
-                        <Clock size={16} className="mr-2 text-paulstarr-accent" />
+                        <Clock size={16} className="mr-2 text-blue-600" />
                         {slot}
                       </div>
                     </SelectItem>
@@ -268,7 +254,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <SelectTrigger id="carMake" className="w-full">
                   <SelectValue placeholder="Select car make">
                     <div className="flex items-center">
-                      <Car size={16} className="mr-2 text-paulstarr-accent" />
+                      <Car size={16} className="mr-2 text-blue-600" />
                       {carMake || "Select car make"}
                     </div>
                   </SelectValue>
@@ -277,7 +263,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   {commonCarMakes.map((make) => (
                     <SelectItem key={make} value={make}>
                       <div className="flex items-center">
-                        <Car size={16} className="mr-2 text-paulstarr-accent" />
+                        <Car size={16} className="mr-2 text-blue-600" />
                         {make}
                       </div>
                     </SelectItem>
@@ -330,7 +316,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 placeholder="Please describe any specific issues or requests..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full px-3 py-2 border border-paulstarr-200 rounded-md focus:outline-none focus:ring-2 focus:ring-paulstarr-accent focus:border-transparent"
+                className="w-full px-3 py-2 border border-blue-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               />
             </div>
           </div>
@@ -342,7 +328,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <div className="space-y-2">
               <Label htmlFor="name">Full Name</Label>
               <div className="relative">
-                <User size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-paulstarr-500" />
+                <User size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" />
                 <Input
                   id="name"
                   placeholder="John Doe"
@@ -356,7 +342,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <div className="relative">
-                <Mail size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-paulstarr-500" />
+                <Mail size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" />
                 <Input
                   id="email"
                   type="email"
@@ -371,7 +357,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <div className="space-y-2">
               <Label htmlFor="phone">Phone Number</Label>
               <div className="relative">
-                <Phone size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-paulstarr-500" />
+                <Phone size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500" />
                 <Input
                   id="phone"
                   placeholder="07XX XXX XXX"
@@ -383,7 +369,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
 
             <div className="mt-8">
-              <p className="text-sm text-paulstarr-600 mb-4">
+              <p className="text-sm text-blue-600 mb-4">
                 By submitting this form, you agree to be contacted regarding your appointment.
               </p>
             </div>
@@ -409,14 +395,14 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <Button
               type="button"
               onClick={handleNext}
-              className="px-6 bg-paulstarr-accent hover:bg-paulstarr-800 focus:ring-paulstarr-accent"
+              className="px-6 bg-blue-600 hover:bg-blue-800 focus:ring-blue-600"
             >
               Next
             </Button>
           ) : (
             <Button
               type="submit"
-              className="px-6 bg-paulstarr-accent hover:bg-paulstarr-800 focus:ring-paulstarr-accent"
+              className="px-6 bg-blue-600 hover:bg-blue-800 focus:ring-blue-600"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Submitting...' : 'Book Appointment'}
@@ -429,3 +415,4 @@ const BookingForm: React.FC<BookingFormProps> = ({
 };
 
 export default BookingForm;
+

@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({
   subtitle,
   ctaText = 'Book Now',
   ctaLink = '/booking',
-  image = 'https://images.unsplash.com/photo-1599134842279-fe807d23316e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+  image = 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1200&q=60',
   secondaryCta,
 }) => {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({
               backgroundSize: 'cover',
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/50 to-blue-900/80"></div>
         </div>
       </div>
 
@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up" style={{ animationDelay: '900ms', animationFillMode: 'forwards' }}>
             <button
               onClick={handleCtaClick}
-              className="px-8 py-3 bg-paulstarr-accent text-white font-medium rounded-md hover:bg-paulstarr-700 transition-all transform hover:translate-y-[-2px] hover:shadow-lg"
+              className="px-8 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-all transform hover:translate-y-[-2px] hover:shadow-lg"
             >
               {ctaText}
             </button>
@@ -84,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({
             {secondaryCta && (
               <button
                 onClick={handleSecondaryCta}
-                className="flex items-center px-6 py-3 text-white font-medium rounded-md border border-white/30 hover:bg-white/10 transition-all"
+                className="flex items-center px-6 py-3 text-white font-medium rounded-md border border-yellow-400/50 hover:bg-yellow-400/20 transition-all"
               >
                 {secondaryCta.text}
                 <ArrowRight size={18} className="ml-2" />
