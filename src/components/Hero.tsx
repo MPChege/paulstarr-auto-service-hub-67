@@ -20,17 +20,41 @@ const Hero: React.FC<HeroProps> = ({
   subtitle,
   ctaText = 'Book Now',
   ctaLink = '/booking',
-  image = 'https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=1200&q=60',
+  image = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=60',
   secondaryCta,
 }) => {
   const navigate = useNavigate();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of professional car images
+  const carImages = [
+    'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=60', // Toyota Land Cruiser
+    'https://images.unsplash.com/photo-1605893477799-b99e3b400cb6?auto=format&fit=crop&w=1200&q=60', // Mercedes GLE
+    'https://images.unsplash.com/photo-1669558698869-ac66c694f288?auto=format&fit=crop&w=1200&q=60', // Lexus
+    'https://images.unsplash.com/photo-1575650980311-5943dab4f57c?auto=format&fit=crop&w=1200&q=60', // Car maintenance
+  ];
 
   useEffect(() => {
+    // Preload the initial image
     const img = new Image();
     img.src = image;
     img.onload = () => setIsImageLoaded(true);
-  }, [image]);
+    
+    // Rotate through images every 5 seconds
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carImages.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [image, carImages.length]);
+  
+  // When image index changes, preload the new image
+  useEffect(() => {
+    const img = new Image();
+    img.src = carImages[currentImageIndex];
+    img.onload = () => setIsImageLoaded(true);
+  }, [currentImageIndex, carImages]);
 
   const handleCtaClick = () => {
     navigate(ctaLink);
@@ -52,10 +76,10 @@ const Hero: React.FC<HeroProps> = ({
       >
         <div className="parallax h-full">
           <div
-            className="parallax-bg"
+            className="parallax-bg transition-all duration-1000"
             data-speed="0.5"
             style={{
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${carImages[currentImageIndex]})`,
               backgroundPosition: 'center',
               backgroundSize: 'cover',
             }}
@@ -92,6 +116,20 @@ const Hero: React.FC<HeroProps> = ({
             )}
           </div>
         </div>
+      </div>
+
+      {/* Image indicators */}
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+        {carImages.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full ${
+              currentImageIndex === index ? 'bg-yellow-400' : 'bg-white/40'
+            } transition-all duration-300`}
+            onClick={() => setCurrentImageIndex(index)}
+            aria-label={`View image ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* Scroll indicator */}
