@@ -29,6 +29,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const isMobile = useIsMobile();
 
+  // Format pricing to use KES
+  const formattedPricing = pricing ? (
+    pricing.includes('KES') ? pricing : pricing.replace('$', 'KES ')
+  ) : null;
+
   const handleCardClick = () => {
     if (isMobile) {
       navigate(link);
@@ -63,7 +68,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <p className="text-white/90 mb-4">{description}</p>
         
         <div className="mt-auto">
-          {pricing && <p className="font-semibold text-white mb-4">Starting at <span className="text-yellow-400">{pricing}</span></p>}
+          {formattedPricing && <p className="font-semibold text-white mb-4">Starting at <span className="text-yellow-400">{formattedPricing}</span></p>}
           
           <button
             onClick={(e) => {
@@ -102,7 +107,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         )}
         
         <div className="mt-auto">
-          {pricing && <p className="font-medium text-white mb-4">Starting at <span className="text-yellow-400 font-bold">{pricing}</span></p>}
+          {formattedPricing && <p className="font-medium text-white mb-4">Starting at <span className="text-yellow-400 font-bold">{formattedPricing}</span></p>}
           
           <button
             onClick={(e) => {

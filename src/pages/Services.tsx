@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '@/components/Hero';
@@ -21,32 +22,32 @@ const Services: React.FC = () => {
         {
           name: 'Engine Repair',
           description: 'Complete diagnostics and repair of engine issues, from minor fixes to major overhauls.',
-          pricing: 'From $80',
+          pricing: 'From KES 8,000',
         },
         {
           name: 'Brake Service',
           description: 'Inspection and repair of brake pads, rotors, calipers, and brake lines to ensure your safety.',
-          pricing: 'From $60',
+          pricing: 'From KES 6,000',
         },
         {
           name: 'Electrical System',
           description: 'Troubleshooting and repair of electrical issues, including battery, alternator, and starter problems.',
-          pricing: 'From $50',
+          pricing: 'From KES 5,000',
         },
         {
           name: 'Suspension & Steering',
           description: 'Repair and replacement of suspension components for a smoother ride and better handling.',
-          pricing: 'From $75',
+          pricing: 'From KES 7,500',
         },
         {
           name: 'Transmission Repair',
           description: 'Expert diagnosis and repair of manual and automatic transmission problems.',
-          pricing: 'From $150',
+          pricing: 'From KES 15,000',
         },
         {
           name: 'AC & Heating',
           description: 'Repair and maintenance of your vehicle\'s climate control system for year-round comfort.',
-          pricing: 'From $90',
+          pricing: 'From KES 9,000',
         },
       ],
     },
@@ -60,22 +61,22 @@ const Services: React.FC = () => {
         {
           name: 'Full Body Paint',
           description: 'Complete repaint of your vehicle with premium paint and clear coat for lasting protection.',
-          pricing: 'From $1,200',
+          pricing: 'From KES 120,000',
         },
         {
           name: 'Color Matching',
           description: 'Precise color matching technology to ensure repairs blend seamlessly with your existing paint.',
-          pricing: 'From $150',
+          pricing: 'From KES 15,000',
         },
         {
           name: 'Custom Finishes',
           description: 'Specialty paint finishes including metallic, pearl, matte, and custom color options.',
-          pricing: 'From $1,500',
+          pricing: 'From KES 150,000',
         },
         {
           name: 'Scratch & Dent Repair',
           description: 'Repair of scratches, dents, and minor collision damage with paint touch-up.',
-          pricing: 'From $80',
+          pricing: 'From KES 8,000',
         },
       ],
     },
@@ -89,27 +90,27 @@ const Services: React.FC = () => {
         {
           name: 'Oil Change',
           description: 'Regular oil and filter changes using high-quality oils to keep your engine running smoothly.',
-          pricing: 'From $30',
+          pricing: 'From KES 3,000',
         },
         {
           name: 'Tune-Up',
           description: 'Comprehensive engine tune-up service including spark plugs, filters, and system checks.',
-          pricing: 'From $90',
+          pricing: 'From KES 9,000',
         },
         {
           name: 'Tire Service',
           description: 'Tire rotation, balancing, and alignment to extend tire life and improve handling.',
-          pricing: 'From $40',
+          pricing: 'From KES 4,000',
         },
         {
           name: 'Fluid Service',
           description: 'Inspection and replacement of engine fluids including coolant, brake fluid, and transmission fluid.',
-          pricing: 'From $50',
+          pricing: 'From KES 5,000',
         },
         {
           name: 'Battery Service',
           description: 'Battery testing, charging, and replacement to ensure reliable starts every time.',
-          pricing: 'From $25',
+          pricing: 'From KES 2,500',
         },
       ],
     },
@@ -123,32 +124,32 @@ const Services: React.FC = () => {
         {
           name: 'Performance Upgrades',
           description: 'Engine performance modifications including air intakes, exhausts, and ECU tuning.',
-          pricing: 'From $250',
+          pricing: 'From KES 25,000',
         },
         {
           name: 'Custom Exhaust',
           description: 'Custom exhaust system design and installation for improved sound and performance.',
-          pricing: 'From $350',
+          pricing: 'From KES 35,000',
         },
         {
           name: 'Suspension Upgrades',
           description: 'Lowering springs, coilovers, and performance shock absorbers for better handling.',
-          pricing: 'From $400',
+          pricing: 'From KES 40,000',
         },
         {
           name: 'Interior Customization',
           description: 'Custom upholstery, audio systems, lighting, and convenience feature installation.',
-          pricing: 'From $200',
+          pricing: 'From KES 20,000',
         },
         {
           name: 'Wheel & Tire Packages',
           description: 'Custom wheels and performance tires to improve looks and handling.',
-          pricing: 'From $800',
+          pricing: 'From KES 80,000',
         },
         {
           name: 'Body Kits & Styling',
           description: 'Aerodynamic body kits, spoilers, and custom styling elements to enhance appearance.',
-          pricing: 'From $500',
+          pricing: 'From KES 50,000',
         },
       ],
     },

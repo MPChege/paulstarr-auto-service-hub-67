@@ -27,10 +27,12 @@ const PricingTable: React.FC<PricingTableProps> = ({ items }) => {
     ? items 
     : items.filter(item => item.category === activeCategory);
 
-  // Function to ensure KSh prefix for prices
+  // Function to ensure KES prefix for prices
   const formatPrice = (price: string): string => {
-    if (price.includes('KSh')) return price;
-    return `KSh ${price}`;
+    if (price.includes('KES')) return price;
+    // If it has KSh, replace with KES
+    if (price.includes('KSh')) return price.replace('KSh', 'KES');
+    return `KES ${price}`;
   };
 
   return (
