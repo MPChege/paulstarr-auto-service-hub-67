@@ -53,6 +53,56 @@ const BookingForm: React.FC<BookingFormProps> = ({
     '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM'
   ];
 
+  // Common car makes in Kenya
+  const commonCarMakes = [
+    'Toyota', 'Subaru', 'Mercedes-Benz', 'Nissan', 'Mitsubishi', 
+    'Honda', 'Mazda', 'Isuzu', 'Volkswagen', 'Land Rover'
+  ];
+
+  // Car models based on make
+  const getCarModels = (make: string) => {
+    switch (make) {
+      case 'Toyota':
+        return [
+          'Corolla', 'Fielder', 'Premio', 'Vitz', 'Prado', 
+          'Land Cruiser', 'Hilux', 'Fortuner', 'RAV4', 'Wish', 
+          'Noah', 'Voxy', 'Hiace', 'Harrier', 'Probox', 'Succeed'
+        ];
+      case 'Subaru':
+        return [
+          'Forester', 'Outback', 'Impreza', 'Legacy', 'XV', 
+          'WRX', 'STI', 'Levorg'
+        ];
+      case 'Mercedes-Benz':
+        return [
+          'C-Class', 'E-Class', 'S-Class', 'GLC', 'GLE',
+          'G-Wagon', 'ML', 'A-Class', 'B-Class'
+        ];
+      case 'Nissan':
+        return [
+          'X-Trail', 'Juke', 'Tiida', 'Note', 'Serena',
+          'Wingroad', 'Navara', 'Patrol', 'March', 'Sunny'
+        ];
+      case 'Mitsubishi':
+        return [
+          'Pajero', 'Outlander', 'L200', 'Lancer', 'RVR', 
+          'Galant', 'Mirage', 'ASX'
+        ];
+      case 'Honda':
+        return ['Fit', 'CR-V', 'Civic', 'Accord', 'Freed', 'Vezel', 'Stream'];
+      case 'Mazda':
+        return ['Demio', 'Axela', 'Atenza', 'CX-5', 'CX-3', 'Bongo', 'Verisa'];
+      case 'Isuzu':
+        return ['D-Max', 'MU-X', 'FRR', 'NQR', 'ELF', 'FVZ'];
+      case 'Volkswagen':
+        return ['Golf', 'Tiguan', 'Touareg', 'Polo', 'Passat', 'Amarok', 'Jetta'];
+      case 'Land Rover':
+        return ['Range Rover', 'Discovery', 'Defender', 'Evoque', 'Freelander'];
+      default:
+        return [];
+    }
+  };
+
   const handleNext = () => {
     if (step === 1) {
       if (!service || !date || !time) {
@@ -214,36 +264,62 @@ const BookingForm: React.FC<BookingFormProps> = ({
           <div className="space-y-6 animate-fade-in">
             <div className="space-y-2">
               <Label htmlFor="carMake">Car Make</Label>
-              <div className="relative">
-                <Car size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-paulstarr-500" />
-                <Input
-                  id="carMake"
-                  placeholder="e.g., Toyota, Honda, Ford"
-                  value={carMake}
-                  onChange={(e) => setCarMake(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
+              <Select value={carMake} onValueChange={setCarMake}>
+                <SelectTrigger id="carMake" className="w-full">
+                  <SelectValue placeholder="Select car make">
+                    <div className="flex items-center">
+                      <Car size={16} className="mr-2 text-paulstarr-accent" />
+                      {carMake || "Select car make"}
+                    </div>
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  {commonCarMakes.map((make) => (
+                    <SelectItem key={make} value={make}>
+                      <div className="flex items-center">
+                        <Car size={16} className="mr-2 text-paulstarr-accent" />
+                        {make}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="carModel">Car Model</Label>
-              <Input
-                id="carModel"
-                placeholder="e.g., Camry, Civic, F-150"
-                value={carModel}
-                onChange={(e) => setCarModel(e.target.value)}
-              />
+              <Select 
+                value={carModel} 
+                onValueChange={setCarModel}
+                disabled={!carMake}
+              >
+                <SelectTrigger id="carModel" className="w-full">
+                  <SelectValue placeholder={carMake ? "Select car model" : "Select car make first"} />
+                </SelectTrigger>
+                <SelectContent>
+                  {carMake && getCarModels(carMake).map((model) => (
+                    <SelectItem key={model} value={model}>
+                      {model}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="carYear">Year</Label>
-              <Input
-                id="carYear"
-                placeholder="e.g., 2020"
-                value={carYear}
-                onChange={(e) => setCarYear(e.target.value)}
-              />
+              <Select value={carYear} onValueChange={setCarYear}>
+                <SelectTrigger id="carYear" className="w-full">
+                  <SelectValue placeholder="Select year" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Array.from({ length: 25 }, (_, i) => new Date().getFullYear() - i).map((year) => (
+                    <SelectItem key={year} value={year.toString()}>
+                      {year}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div className="space-y-2">
@@ -298,7 +374,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <Phone size={18} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-paulstarr-500" />
                 <Input
                   id="phone"
-                  placeholder="(123) 456-7890"
+                  placeholder="07XX XXX XXX"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="pl-10"

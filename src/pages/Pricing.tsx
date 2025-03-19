@@ -12,39 +12,57 @@ const Pricing: React.FC = () => {
       service: 'Oil Change',
       category: 'repairs',
       description: 'Full synthetic oil change with filter',
-      price: '$45',
+      price: 'KSh 5,500',
       notes: 'Price may vary based on oil type and quantity required',
     },
     {
       service: 'Brake Service',
       category: 'repairs',
       description: 'Brake pad replacement (per axle)',
-      priceRange: { min: '$80', max: '$150' },
+      priceRange: { min: 'KSh 9,800', max: 'KSh 18,500' },
       notes: 'Additional costs for rotors if needed',
     },
     {
       service: 'Engine Diagnostics',
       category: 'repairs',
       description: 'Computer diagnostic scan',
-      price: '$75',
+      price: 'KSh 9,200',
     },
     {
       service: 'Battery Replacement',
       category: 'repairs',
       description: 'Including testing and installation',
-      priceRange: { min: '$120', max: '$200' },
+      priceRange: { min: 'KSh 15,000', max: 'KSh 25,000' },
     },
     {
       service: 'Alternator Replacement',
       category: 'repairs',
       description: 'Parts and labor included',
-      priceRange: { min: '$250', max: '$400' },
+      priceRange: { min: 'KSh 30,000', max: 'KSh 50,000' },
     },
     {
       service: 'Starter Replacement',
       category: 'repairs',
       description: 'Parts and labor included',
-      priceRange: { min: '$200', max: '$350' },
+      priceRange: { min: 'KSh 25,000', max: 'KSh 43,000' },
+    },
+    {
+      service: 'Toyota Timing Belt Replacement',
+      category: 'repairs',
+      description: 'For Toyota Corolla and similar models',
+      priceRange: { min: 'KSh 20,000', max: 'KSh 35,000' },
+    },
+    {
+      service: 'Subaru Head Gasket Repair',
+      category: 'repairs',
+      description: 'Complete head gasket replacement',
+      priceRange: { min: 'KSh 75,000', max: 'KSh 120,000' },
+    },
+    {
+      service: 'Mercedes Electrical System Diagnosis',
+      category: 'repairs',
+      description: 'Full electrical system check',
+      price: 'KSh 15,000',
     },
     
     // Painting Services
@@ -52,26 +70,38 @@ const Pricing: React.FC = () => {
       service: 'Full Body Paint',
       category: 'painting',
       description: 'Complete vehicle paint job',
-      priceRange: { min: '$1,500', max: '$3,500' },
+      priceRange: { min: 'KSh 180,000', max: 'KSh 420,000' },
       notes: 'Price varies based on vehicle size and paint type',
     },
     {
       service: 'Panel Painting',
       category: 'painting',
       description: 'Single panel paint and repair',
-      priceRange: { min: '$200', max: '$500' },
+      priceRange: { min: 'KSh 25,000', max: 'KSh 60,000' },
     },
     {
       service: 'Paint Protection',
       category: 'painting',
       description: 'Ceramic coating application',
-      priceRange: { min: '$500', max: '$1,200' },
+      priceRange: { min: 'KSh 60,000', max: 'KSh 150,000' },
     },
     {
       service: 'Scratch Repair',
       category: 'painting',
       description: 'Minor scratch and paint touch-up',
-      priceRange: { min: '$50', max: '$150' },
+      priceRange: { min: 'KSh 6,000', max: 'KSh 18,000' },
+    },
+    {
+      service: 'Toyota Color Matching',
+      category: 'painting',
+      description: 'Precise color matching for Toyota models',
+      price: 'KSh 8,000',
+    },
+    {
+      service: 'Mercedes Premium Paint',
+      category: 'painting',
+      description: 'Premium paint for Mercedes-Benz vehicles',
+      priceRange: { min: 'KSh 250,000', max: 'KSh 450,000' },
     },
     
     // Regular Servicing
@@ -79,26 +109,50 @@ const Pricing: React.FC = () => {
       service: 'Basic Service',
       category: 'servicing',
       description: 'Oil change, filter replacement, inspection',
-      price: '$80',
+      price: 'KSh 9,800',
     },
     {
       service: 'Full Service',
       category: 'servicing',
       description: 'Comprehensive vehicle check and service',
-      price: '$180',
+      price: 'KSh 22,000',
     },
     {
       service: 'Major Service',
       category: 'servicing',
       description: 'Complete vehicle overhaul',
-      priceRange: { min: '$300', max: '$500' },
+      priceRange: { min: 'KSh 35,000', max: 'KSh 60,000' },
       notes: 'Includes all fluids, filters, and detailed inspection',
     },
     {
       service: 'Air Conditioning Service',
       category: 'servicing',
       description: 'AC system check and recharge',
-      price: '$120',
+      price: 'KSh 15,000',
+    },
+    {
+      service: 'Toyota Corolla/Fielder Service',
+      category: 'servicing',
+      description: 'Specialized service for Toyota Corolla and Fielder models',
+      price: 'KSh 12,000',
+    },
+    {
+      service: 'Toyota Prado/Land Cruiser Service',
+      category: 'servicing',
+      description: 'Full service for Toyota Prado and Land Cruiser',
+      price: 'KSh 25,000',
+    },
+    {
+      service: 'Subaru Forester/Outback Service',
+      category: 'servicing',
+      description: 'Specialized service for Subaru models',
+      price: 'KSh 18,000',
+    },
+    {
+      service: 'Mercedes C-Class/E-Class Service',
+      category: 'servicing',
+      description: 'Premium service for Mercedes-Benz vehicles',
+      priceRange: { min: 'KSh 30,000', max: 'KSh 45,000' },
     },
     
     // Modifications
@@ -106,26 +160,38 @@ const Pricing: React.FC = () => {
       service: 'Performance Exhaust',
       category: 'modifications',
       description: 'Custom exhaust system installation',
-      priceRange: { min: '$400', max: '$1,200' },
+      priceRange: { min: 'KSh 50,000', max: 'KSh 150,000' },
     },
     {
       service: 'ECU Tuning',
       category: 'modifications',
       description: 'Engine management optimization',
-      priceRange: { min: '$300', max: '$800' },
+      priceRange: { min: 'KSh 35,000', max: 'KSh 100,000' },
     },
     {
       service: 'Suspension Upgrade',
       category: 'modifications',
       description: 'Coilover or lowering spring installation',
-      priceRange: { min: '$600', max: '$1,500' },
+      priceRange: { min: 'KSh 75,000', max: 'KSh 180,000' },
     },
     {
       service: 'Wheel Package',
       category: 'modifications',
       description: 'Custom wheels and tires',
-      priceRange: { min: '$800', max: '$2,500' },
+      priceRange: { min: 'KSh 100,000', max: 'KSh 300,000' },
       notes: 'Price varies based on wheel and tire selection',
+    },
+    {
+      service: 'Toyota Hilux/Fortuner Off-Road Package',
+      category: 'modifications',
+      description: 'Complete off-road modification package',
+      priceRange: { min: 'KSh 200,000', max: 'KSh 500,000' },
+    },
+    {
+      service: 'Subaru WRX/STI Performance Tune',
+      category: 'modifications',
+      description: 'Performance enhancements for Subaru turbo models',
+      priceRange: { min: 'KSh 120,000', max: 'KSh 250,000' },
     },
   ];
 
@@ -133,7 +199,7 @@ const Pricing: React.FC = () => {
     {
       icon: <CreditCard className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Multiple Payment Options',
-      description: 'We accept all major credit cards, cash, and digital payments for your convenience.',
+      description: 'We accept M-Pesa, bank transfers, credit cards, and cash for your convenience.',
     },
     {
       icon: <CalendarDays className="w-6 h-6 text-paulstarr-accent" />,
@@ -148,7 +214,7 @@ const Pricing: React.FC = () => {
     {
       icon: <Wallet className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Price Match Guarantee',
-      description: "We'll match any comparable service price from authorized competitors.",
+      description: "We'll match any comparable service price from authorized competitors in Nairobi.",
     },
   ];
 
@@ -157,7 +223,7 @@ const Pricing: React.FC = () => {
       {/* Hero Section */}
       <Hero
         title="Transparent Pricing For Quality Service"
-        subtitle="Competitive rates for all our professional auto services"
+        subtitle="Competitive rates for all our professional auto services in Kenya"
         ctaText="Book Now"
         ctaLink="/booking"
         image="https://images.unsplash.com/photo-1597766325363-8a88739265bb?ixlib=rb-4.0.3"
@@ -170,7 +236,7 @@ const Pricing: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Our Pricing</span>
             <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Service Price List</h2>
             <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
-              Explore our comprehensive pricing for all services. All prices include labor unless otherwise noted.
+              Explore our comprehensive pricing for all services. All prices are in Kenyan Shillings and include labor unless otherwise noted.
             </p>
           </div>
 

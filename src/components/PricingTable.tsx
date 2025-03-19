@@ -7,7 +7,7 @@ interface PricingItem {
   service: string;
   category: string;
   description: string;
-  price?: string | null;  // Make price optional
+  price?: string | null;  // Optional price field
   priceRange?: { min: string; max: string };
   notes?: string;
 }
