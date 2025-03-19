@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '@/components/Hero';
-import { Wrench, PaintBucket, Settings, Check, ArrowRight, Screwdriver } from 'lucide-react';
+import { Wrench, PaintBucket, Settings, Check, ArrowRight, Hammer } from 'lucide-react';
 import { setupScrollReveal } from '@/utils/animations';
 
 const Services: React.FC = () => {
@@ -84,7 +84,7 @@ const Services: React.FC = () => {
       title: 'Regular Servicing',
       description: 'Routine maintenance services to keep your vehicle running smoothly and prevent costly repairs.',
       image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3',
-      icon: <Screwdriver size={24} />,
+      icon: <Hammer size={24} />,
       services: [
         {
           name: 'Oil Change',
