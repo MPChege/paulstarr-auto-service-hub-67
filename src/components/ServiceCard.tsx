@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ServiceCardProps {
   title: string;
@@ -26,13 +27,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
+
+  const handleCardClick = () => {
+    if (isMobile) {
+      navigate(link);
+    }
+  };
 
   return (
     <div
-      className="reveal card-hover card-shine relative rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl group"
+      className="reveal card-hover card-shine relative rounded-xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl group h-full flex flex-col"
       style={{ animationDelay: `${index * 150}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       {/* Card Image Background */}
       <div className="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -53,15 +62,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         
         <p className="text-white/90 mb-4">{description}</p>
         
-        {pricing && <p className="mt-auto font-semibold text-white mb-4">Starting at <span className="text-yellow-400">{pricing}</span></p>}
-        
-        <button
-          onClick={() => navigate(link)}
-          className="w-full py-2 rounded-md transition-all duration-300 border border-yellow-400/50 bg-yellow-400/10 text-white hover:bg-yellow-400 hover:text-blue-900 flex items-center justify-center"
-        >
-          View Details
-          <ArrowRight size={16} className="ml-2 transition-transform duration-300 transform group-hover:translate-x-1" />
-        </button>
+        <div className="mt-auto">
+          {pricing && <p className="font-semibold text-white mb-4">Starting at <span className="text-yellow-400">{pricing}</span></p>}
+          
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(link);
+            }}
+            className="w-full py-2 rounded-md transition-all duration-300 border border-yellow-400/50 bg-yellow-400/10 text-white hover:bg-yellow-400 hover:text-blue-900 flex items-center justify-center"
+          >
+            View Details
+            <ArrowRight size={16} className="ml-2 transition-transform duration-300 transform group-hover:translate-x-1" />
+          </button>
+        </div>
       </div>
       
       {/* Hover Content (Slides up on hover) */}
@@ -87,15 +101,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         )}
         
-        {pricing && <p className="mt-auto font-medium text-white mb-4">Starting at <span className="text-yellow-400 font-bold">{pricing}</span></p>}
-        
-        <button
-          onClick={() => navigate(link)}
-          className="w-full py-3 rounded-md transition-all duration-300 bg-yellow-400 text-blue-900 font-semibold hover:bg-yellow-500 flex items-center justify-center shadow-lg shadow-yellow-400/30"
-        >
-          Book Service
-          <ArrowRight size={16} className="ml-2 transition-transform duration-300 transform group-hover:translate-x-1" />
-        </button>
+        <div className="mt-auto">
+          {pricing && <p className="font-medium text-white mb-4">Starting at <span className="text-yellow-400 font-bold">{pricing}</span></p>}
+          
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(link);
+            }}
+            className="w-full py-3 rounded-md transition-all duration-300 bg-yellow-400 text-blue-900 font-semibold hover:bg-yellow-500 flex items-center justify-center shadow-lg shadow-yellow-400/30"
+          >
+            Book Service
+            <ArrowRight size={16} className="ml-2 transition-transform duration-300 transform group-hover:translate-x-1" />
+          </button>
+        </div>
       </div>
     </div>
   );
