@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
-import { Wrench, PaintBucket, Settings, ArrowRight, Phone, Calendar, Users, Hammer } from 'lucide-react';
+import { Wrench, PaintBucket, Settings, ArrowRight, Phone, Calendar, Users, Hammer, Car } from 'lucide-react';
 import { setupScrollReveal } from '@/utils/animations';
 
 const Index: React.FC = () => {
@@ -74,7 +74,7 @@ const Index: React.FC = () => {
 
   const stats = [
     { value: '10+', label: 'Years of Experience', icon: <Users size={24} className="text-paulstarr-accent" /> },
-    { value: '5000+', label: 'Cars Serviced', icon: <Tool size={24} className="text-paulstarr-accent" /> },
+    { value: '5000+', label: 'Cars Serviced', icon: <Car size={24} className="text-paulstarr-accent" /> },
     { value: '97%', label: 'Customer Satisfaction', icon: <Phone size={24} className="text-paulstarr-accent" /> },
   ];
 
