@@ -27,6 +27,12 @@ const PricingTable: React.FC<PricingTableProps> = ({ items }) => {
     ? items 
     : items.filter(item => item.category === activeCategory);
 
+  // Function to ensure KSh prefix for prices
+  const formatPrice = (price: string): string => {
+    if (price.includes('KSh')) return price;
+    return `KSh ${price}`;
+  };
+
   return (
     <div className="w-full">
       {/* Category filter */}
@@ -79,9 +85,9 @@ const PricingTable: React.FC<PricingTableProps> = ({ items }) => {
               
               <div className="col-span-2 text-right font-medium">
                 {item.price ? (
-                  <span className="text-paulstarr-900">{item.price}</span>
+                  <span className="text-paulstarr-900">{formatPrice(item.price)}</span>
                 ) : item.priceRange ? (
-                  <span className="text-paulstarr-900">{item.priceRange.min} - {item.priceRange.max}</span>
+                  <span className="text-paulstarr-900">{formatPrice(item.priceRange.min)} - {formatPrice(item.priceRange.max)}</span>
                 ) : (
                   <span className="text-paulstarr-500">Varies</span>
                 )}
