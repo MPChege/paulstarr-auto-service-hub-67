@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 interface HeroProps {
   title: string;
@@ -84,23 +84,34 @@ const Hero: React.FC<HeroProps> = ({
               backgroundSize: 'cover',
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/50 to-blue-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/60 to-blue-900/80"></div>
         </div>
       </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-r from-yellow-400/30 via-blue-500/20 to-blue-700/30 backdrop-blur-sm"></div>
+      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-r from-blue-700/30 via-blue-500/20 to-yellow-400/30 backdrop-blur-sm"></div>
+      
+      {/* Animated circular accents */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-yellow-400/10 backdrop-blur-md -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-blue-500/10 backdrop-blur-md translate-x-1/2 translate-y-1/2 animate-pulse" style={{ animationDuration: '3s' }}></div>
 
       {/* Content */}
       <div className="relative container mx-auto px-6 z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}>
+          <div className="inline-block px-4 py-1 rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 text-yellow-400 text-sm font-medium mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+            Premium Auto Services
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
             {title}
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 opacity-0 animate-fade-up" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
             {subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up" style={{ animationDelay: '900ms', animationFillMode: 'forwards' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
             <button
               onClick={handleCtaClick}
-              className="px-8 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-all transform hover:translate-y-[-2px] hover:shadow-lg"
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 transition-all transform hover:translate-y-[-2px] hover:shadow-lg shadow-blue-700/30"
             >
               {ctaText}
             </button>
@@ -108,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({
             {secondaryCta && (
               <button
                 onClick={handleSecondaryCta}
-                className="flex items-center px-6 py-3 text-white font-medium rounded-md border border-yellow-400/50 hover:bg-yellow-400/20 transition-all"
+                className="flex items-center px-6 py-3 text-white font-medium rounded-md border border-yellow-400/50 bg-yellow-400/10 hover:bg-yellow-400/20 transition-all shadow-yellow-500/20 hover:shadow-lg"
               >
                 {secondaryCta.text}
                 <ArrowRight size={18} className="ml-2" />
@@ -119,13 +130,15 @@ const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Image indicators */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex gap-3 z-10 opacity-0 animate-fade-in" style={{ animationDelay: '1200ms', animationFillMode: 'forwards' }}>
         {carImages.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full ${
-              currentImageIndex === index ? 'bg-yellow-400' : 'bg-white/40'
-            } transition-all duration-300`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              currentImageIndex === index 
+                ? 'bg-yellow-400 scale-125 shadow-md shadow-yellow-400/50' 
+                : 'bg-white/40 hover:bg-white/60'
+            }`}
             onClick={() => setCurrentImageIndex(index)}
             aria-label={`View image ${index + 1}`}
           />

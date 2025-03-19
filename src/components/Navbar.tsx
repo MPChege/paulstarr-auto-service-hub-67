@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Car } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,10 +36,10 @@ const Navbar: React.FC = () => {
   ];
 
   const getNavLinkClass = (isActive: boolean) => {
-    return `relative px-3 py-2 text-base font-medium transition-all duration-300 hover:text-paulstarr-accent ${
+    return `relative px-3 py-2 text-base font-medium transition-all duration-300 hover:text-blue-600 group ${
       isActive 
-        ? 'text-paulstarr-accent after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-paulstarr-accent after:content-[""]'
-        : 'text-paulstarr-800'
+        ? 'text-blue-600'
+        : 'text-gray-800'
     }`;
   };
 
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled 
-          ? 'bg-white/80 backdrop-blur-lg shadow-soft py-3' 
+          ? 'bg-white/90 backdrop-blur-lg shadow-md py-3' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -55,8 +55,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <NavLink to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-paulstarr-900">
-              <span className="text-paulstarr-accent">Paulstarr</span> Auto
+            <div className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-600 text-white">
+              <Car size={20} />
+            </div>
+            <span className="text-2xl font-bold">
+              <span className="text-gradient-blue">Paulstarr</span> <span className="text-gray-800">Auto</span>
             </span>
           </NavLink>
 
@@ -69,12 +72,13 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) => getNavLinkClass(isActive)}
               >
                 {item.name}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </NavLink>
             ))}
             
             <NavLink 
               to="/booking" 
-              className="ml-4 px-5 py-2 rounded-md bg-paulstarr-accent text-white font-medium transition-all hover:bg-paulstarr-800 hover:shadow-button"
+              className="ml-4 px-5 py-2 rounded-md bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium transition-all hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1"
             >
               Book Now
             </NavLink>
@@ -84,7 +88,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-paulstarr-900 hover:text-paulstarr-accent focus:outline-none"
+              className="text-gray-800 hover:text-blue-600 focus:outline-none"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               {isOpen ? (
@@ -110,7 +114,7 @@ const Navbar: React.FC = () => {
               key={item.path}
               to={item.path}
               className={({ isActive }) => 
-                `text-xl font-medium ${isActive ? 'text-paulstarr-accent' : 'text-paulstarr-800'}`
+                `text-xl font-medium transition-all ${isActive ? 'text-blue-600' : 'text-gray-800'}`
               }
             >
               {item.name}
@@ -119,7 +123,7 @@ const Navbar: React.FC = () => {
           
           <NavLink 
             to="/booking" 
-            className="mt-4 py-3 w-full rounded-md bg-paulstarr-accent text-white font-medium text-center"
+            className="mt-4 py-3 w-full rounded-md bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium text-center shadow-lg"
           >
             Book Now
           </NavLink>
