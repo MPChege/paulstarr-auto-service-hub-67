@@ -148,7 +148,7 @@ const Pricing: React.FC = () => {
     {
       icon: <Wallet className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Price Match Guarantee',
-      description: 'We'll match any comparable service price from authorized competitors.',
+      description: "We'll match any comparable service price from authorized competitors.",
     },
   ];
 
