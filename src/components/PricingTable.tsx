@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Info, Check } from 'lucide-react';
+import Car3DModel from './3d/Car3DModel';
 
 interface PricingItem {
   service: string;
@@ -32,11 +33,18 @@ const PricingTable: React.FC<PricingTableProps> = ({ items }) => {
     if (price.includes('KES')) return price;
     // If it has KSh, replace with KES
     if (price.includes('KSh')) return price.replace('KSh', 'KES');
+    // If it has $, replace with KES
+    if (price.includes('$')) return price.replace('$', 'KES ');
     return `KES ${price}`;
   };
 
   return (
     <div className="w-full">
+      {/* 3D Car Model */}
+      <div className="mb-10">
+        <Car3DModel className="w-full h-64 md:h-80" />
+      </div>
+      
       {/* Category filter */}
       <div className="mb-8 flex flex-wrap gap-2">
         {categories.map((category) => (
