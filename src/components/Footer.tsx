@@ -82,8 +82,8 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <MapPin size={18} className="text-paulstarr-accent mr-2 mt-1 flex-shrink-0" />
                 <span className="text-paulstarr-300">
-                  Plot 6 Amuwo Odofin Industrial Scheme<br />
-                  Amuwo Odofin, Lagos, Nigeria
+                  Paulstar Auto Care Limited<br />
+                  Utawala, Nairobi, Kenya
                 </span>
               </li>
               <li className="flex items-center">

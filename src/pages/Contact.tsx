@@ -10,10 +10,10 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Our Location',
-      details: ['Plot 6 Amuwo Odofin Industrial Scheme', 'Amuwo Odofin, Lagos, Nigeria'],
+      details: ['Paulstar Auto Care Limited', 'Utawala, Nairobi, Kenya'],
       action: {
         text: 'Get Directions',
-        link: 'https://maps.google.com/?q=Plot+6+Amuwo+Odofin+Industrial+Scheme,Lagos',
+        link: 'https://www.google.com/maps/place/Paulstar+auto+care-+limited/@-1.2751665,36.9728319,17z',
       },
     },
     {
@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Contact Us</span>
             <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Reach Out To Our Team</h2>
             <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
-              For quality car repair, maintenance, and auto care services in Lagos, contact Paulstar Auto Care Limited today.
+              For quality car repair, maintenance, and auto care services in Nairobi, contact Paulstar Auto Care Limited today.
             </p>
           </div>
 
@@ -145,9 +145,9 @@ const Contact: React.FC = () => {
             </div>
             
             <div className="rounded-xl overflow-hidden shadow-soft h-[450px] reveal">
-              {/* Updated Google Maps embed with the actual location in Lagos */}
+              {/* Updated Google Maps embed with the actual location in Nairobi, Kenya */}
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.6332003881474!2d3.296022914326056!3d6.438753095344578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b890001e4c957%3A0x7e9f222e3b43284a!2sAmuwo%20Odofin%20Industrial%20Scheme%2C%20Lagos!5e0!3m2!1sen!2sng!4v1680812345678!5m2!1sen!2sng" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.799194976835!2d36.97283191487576!3d-1.2751664990715282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f6b2ad93eae47%3A0x3ece2f71e58621fe!2sPaulstar%20auto%20care-%20limited!5e0!3m2!1sen!2sus!4v1693348765483!5m2!1sen!2sus" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-paulstarr-900 mb-4 reveal">Our Auto Care Services</h2>
             <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
-              At Paulstar Auto Care Limited, we offer comprehensive auto services in Lagos
+              At Paulstar Auto Care Limited, we offer comprehensive auto services in Nairobi
             </p>
           </div>
           
@@ -190,7 +190,7 @@ const Contact: React.FC = () => {
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 reveal">Ready To Get Started?</h2>
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto reveal">
-                Schedule your service appointment today with Paulstar Auto Care Limited, Lagos.
+                Schedule your service appointment today with Paulstar Auto Care Limited, Nairobi.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 reveal">
                 <Link
