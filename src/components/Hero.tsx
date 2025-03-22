@@ -129,18 +129,17 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Image indicators */}
+      {/* Image indicators - just visual indicators, no buttons needed */}
       <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex gap-3 z-10 opacity-0 animate-fade-in" style={{ animationDelay: '1200ms', animationFillMode: 'forwards' }}>
         {carImages.map((_, index) => (
-          <button
+          <div
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               currentImageIndex === index 
                 ? 'bg-yellow-400 scale-125 shadow-md shadow-yellow-400/50' 
-                : 'bg-white/40 hover:bg-white/60'
+                : 'bg-white/40'
             }`}
-            onClick={() => setCurrentImageIndex(index)}
-            aria-label={`View image ${index + 1}`}
+            aria-label={`Image ${index + 1}`}
           />
         ))}
       </div>
