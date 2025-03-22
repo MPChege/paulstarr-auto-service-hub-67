@@ -13,13 +13,13 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-paulstarr-accent">Paulstarr</span> Auto
+              <span className="text-paulstarr-accent">Paulstar</span> Auto Care
             </h3>
             <p className="text-paulstarr-300 mb-4">
               Premium auto repair, painting, servicing and modification to keep your vehicle in top condition.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-paulstarr-accent transition-colors">
+              <a href="https://www.facebook.com/p/Paulstar-Auto-Care-Limited-100054297457146/" className="text-white hover:text-paulstarr-accent transition-colors" target="_blank" rel="noopener noreferrer">
                 <Facebook size={20} />
               </a>
               <a href="#" className="text-white hover:text-paulstarr-accent transition-colors">
@@ -82,20 +82,20 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <MapPin size={18} className="text-paulstarr-accent mr-2 mt-1 flex-shrink-0" />
                 <span className="text-paulstarr-300">
-                  123 Auto Service Road<br />
-                  Cartown, CT 12345
+                  Plot 6 Amuwo Odofin Industrial Scheme<br />
+                  Amuwo Odofin, Lagos, Nigeria
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="text-paulstarr-accent mr-2 flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-paulstarr-300 hover:text-white transition-colors">
-                  (123) 456-7890
+                <a href="tel:+2348037200001" className="text-paulstarr-300 hover:text-white transition-colors">
+                  +234 803 720 0001
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="text-paulstarr-accent mr-2 flex-shrink-0" />
-                <a href="mailto:info@paulstarrauto.com" className="text-paulstarr-300 hover:text-white transition-colors">
-                  info@paulstarrauto.com
+                <a href="mailto:info@paulstarautocare.com" className="text-paulstarr-300 hover:text-white transition-colors">
+                  info@paulstarautocare.com
                 </a>
               </li>
               <li className="flex items-start">
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-paulstarr-700 mt-10 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-paulstarr-400 text-sm">
-              &copy; {year} Paulstarr Auto Spares. All rights reserved.
+              &copy; {year} Paulstar Auto Care Limited. All rights reserved.
             </p>
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6 text-sm">
