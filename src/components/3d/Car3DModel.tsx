@@ -35,20 +35,20 @@ function CarModel({ rotate = true }: { rotate?: boolean }) {
       </mesh>
       
       {/* Wheels */}
-      <mesh position={[-1.5, 0, 1]} castShadow>
-        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh position={[-1.5, 0, 1]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} />
         <meshStandardMaterial color="#0f172a" metalness={0.1} roughness={0.8} />
       </mesh>
-      <mesh position={[1.5, 0, 1]} castShadow>
-        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh position={[1.5, 0, 1]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} />
         <meshStandardMaterial color="#0f172a" metalness={0.1} roughness={0.8} />
       </mesh>
-      <mesh position={[-1.5, 0, -1]} castShadow>
-        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh position={[-1.5, 0, -1]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} />
         <meshStandardMaterial color="#0f172a" metalness={0.1} roughness={0.8} />
       </mesh>
-      <mesh position={[1.5, 0, -1]} castShadow>
-        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh position={[1.5, 0, -1]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+        <cylinderGeometry args={[0.4, 0.4, 0.2, 32]} />
         <meshStandardMaterial color="#0f172a" metalness={0.1} roughness={0.8} />
       </mesh>
       
