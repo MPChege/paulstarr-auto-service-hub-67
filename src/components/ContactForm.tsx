@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User, Mail, MessageSquare, Send } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -11,6 +11,11 @@ const ContactForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Debug render confirmation
+  useEffect(() => {
+    console.log('ContactForm component mounted');
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +40,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 w-full">
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <div className="relative">
@@ -75,7 +80,7 @@ const ContactForm: React.FC = () => {
             placeholder="How can we help you?"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full pl-10 pr-3 py-2 border border-paulstarr-200 rounded-md focus:outline-none focus:ring-2 focus:ring-paulstarr-accent focus:border-transparent"
+            className="w-full pl-10 pr-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-paulstarr-accent focus:border-transparent"
           />
         </div>
       </div>
@@ -87,9 +92,9 @@ const ContactForm: React.FC = () => {
       >
         {isSubmitting ? (
           <span className="flex items-center">
-            <span className="loading-dot w-2 h-2 bg-white rounded-full mx-0.5"></span>
-            <span className="loading-dot w-2 h-2 bg-white rounded-full mx-0.5"></span>
-            <span className="loading-dot w-2 h-2 bg-white rounded-full mx-0.5"></span>
+            <span className="loading-dot w-2 h-2 bg-white rounded-full mx-0.5 animate-pulse"></span>
+            <span className="loading-dot w-2 h-2 bg-white rounded-full mx-0.5 animate-pulse delay-75"></span>
+            <span className="loading-dot w-2 h-2 bg-white rounded-full mx-0.5 animate-pulse delay-150"></span>
           </span>
         ) : (
           <span className="flex items-center">
