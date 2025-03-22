@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
     return `relative px-3 py-2 text-base font-medium transition-all duration-300 hover:text-blue-600 group ${
       isActive 
         ? 'text-blue-600'
-        : 'text-gray-800'
+        : scrolled ? 'text-gray-800' : 'text-white'
     }`;
   };
 
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled 
-          ? 'bg-white/90 backdrop-blur-lg shadow-md py-3' 
+          ? 'bg-white shadow-md py-3' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -59,7 +59,8 @@ const Navbar: React.FC = () => {
               <Car size={20} />
             </div>
             <span className="text-2xl font-bold">
-              <span className="text-gradient-blue">Paulstarr</span> <span className="text-gray-800">Auto</span>
+              <span className={`${scrolled ? 'text-gradient-blue' : 'text-white'}`}>Paulstarr</span> 
+              <span className={scrolled ? 'text-gray-800' : 'text-white'}> Auto</span>
             </span>
           </NavLink>
 
@@ -78,7 +79,11 @@ const Navbar: React.FC = () => {
             
             <NavLink 
               to="/booking" 
-              className="ml-4 px-5 py-2 rounded-md bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium transition-all hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1"
+              className={`ml-4 px-5 py-2 rounded-md ${
+                scrolled 
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white' 
+                  : 'bg-white text-blue-700'
+              } font-medium transition-all hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1`}
             >
               Book Now
             </NavLink>
@@ -88,7 +93,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 hover:text-blue-600 focus:outline-none"
+              className={`${scrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600 focus:outline-none`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               {isOpen ? (
