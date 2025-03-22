@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface HeroProps {
   title: string;
@@ -26,6 +27,7 @@ const Hero: React.FC<HeroProps> = ({
   const navigate = useNavigate();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const isMobile = useIsMobile();
   
   // Array of professional car images
   const carImages = [
@@ -67,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <div className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[500px] md:min-h-[600px] h-[calc(100vh-70px)] w-full flex items-center justify-center overflow-hidden">
       {/* Background image with parallax effect */}
       <div
         className={`absolute inset-0 transition-opacity duration-700 ${
@@ -88,30 +90,38 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-r from-yellow-400/30 via-blue-500/20 to-blue-700/30 backdrop-blur-sm"></div>
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-r from-blue-700/30 via-blue-500/20 to-yellow-400/30 backdrop-blur-sm"></div>
+      {/* Decorative elements - simplified for mobile */}
+      {!isMobile && (
+        <>
+          <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-r from-yellow-400/30 via-blue-500/20 to-blue-700/30 backdrop-blur-sm"></div>
+          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-r from-blue-700/30 via-blue-500/20 to-yellow-400/30 backdrop-blur-sm"></div>
+        </>
+      )}
       
-      {/* Animated circular accents */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-yellow-400/10 backdrop-blur-md -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-blue-500/10 backdrop-blur-md translate-x-1/2 translate-y-1/2 animate-pulse" style={{ animationDuration: '3s' }}></div>
+      {/* Animated circular accents - simplified for mobile */}
+      {!isMobile && (
+        <>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-yellow-400/10 backdrop-blur-md -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full bg-blue-500/10 backdrop-blur-md translate-x-1/2 translate-y-1/2 animate-pulse" style={{ animationDuration: '3s' }}></div>
+        </>
+      )}
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 z-10">
+      <div className="relative container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block px-4 py-1 rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 text-yellow-400 text-sm font-medium mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
+          <div className="inline-block px-3 py-1 md:px-4 md:py-1 rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 text-yellow-400 text-xs md:text-sm font-medium mb-4 md:mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
             Premium Auto Services
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 md:mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
             {title}
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 opacity-0 animate-fade-up" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 opacity-0 animate-fade-up" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
             {subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-up" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 opacity-0 animate-fade-up" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
             <button
               onClick={handleCtaClick}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 transition-all transform hover:translate-y-[-2px] hover:shadow-lg shadow-blue-700/30"
+              className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 transition-all transform hover:translate-y-[-2px] hover:shadow-lg shadow-blue-700/30"
             >
               {ctaText}
             </button>
@@ -119,7 +129,7 @@ const Hero: React.FC<HeroProps> = ({
             {secondaryCta && (
               <button
                 onClick={handleSecondaryCta}
-                className="flex items-center px-6 py-3 text-white font-medium rounded-md border border-yellow-400/50 bg-yellow-400/10 hover:bg-yellow-400/20 transition-all shadow-yellow-500/20 hover:shadow-lg"
+                className="w-full sm:w-auto mt-3 sm:mt-0 flex items-center justify-center px-5 py-3 md:px-6 md:py-3 text-white font-medium rounded-md border border-yellow-400/50 bg-yellow-400/10 hover:bg-yellow-400/20 transition-all shadow-yellow-500/20 hover:shadow-lg"
               >
                 {secondaryCta.text}
                 <ArrowRight size={18} className="ml-2" />
@@ -129,12 +139,12 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Image indicators - just visual indicators, no buttons needed */}
-      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 flex gap-3 z-10 opacity-0 animate-fade-in" style={{ animationDelay: '1200ms', animationFillMode: 'forwards' }}>
+      {/* Image indicators */}
+      <div className="absolute bottom-20 md:bottom-28 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3 z-10 opacity-0 animate-fade-in" style={{ animationDelay: '1200ms', animationFillMode: 'forwards' }}>
         {carImages.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               currentImageIndex === index 
                 ? 'bg-yellow-400 scale-125 shadow-md shadow-yellow-400/50' 
                 : 'bg-white/40'
@@ -144,8 +154,8 @@ const Hero: React.FC<HeroProps> = ({
         ))}
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in" style={{ animationDelay: '1500ms', animationFillMode: 'forwards' }}>
+      {/* Scroll indicator - hidden on small mobile */}
+      <div className="hidden md:flex absolute bottom-10 left-1/2 transform -translate-x-1/2 flex-col items-center opacity-0 animate-fade-in" style={{ animationDelay: '1500ms', animationFillMode: 'forwards' }}>
         <span className="text-white/80 text-sm mb-2">Scroll to explore</span>
         <div className="h-12 w-6 border-2 border-white/30 rounded-full flex justify-center p-1">
           <div className="w-1 h-2 bg-white rounded-full animate-bounce"></div>
