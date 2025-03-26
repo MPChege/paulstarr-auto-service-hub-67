@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <NavLink to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/5a3ada10-d36c-4d38-ae24-7e0489eb4cc0.png" 
+              src="/lovable-uploads/a38ff821-3f72-4a68-b97f-7e567d02ebec.png" 
               alt="Paulstar Auto-Care Logo" 
               className="h-10 md:h-12"
             />
