@@ -6,6 +6,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -53,13 +54,25 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <NavLink to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/5a3ada10-d36c-4d38-ae24-7e0489eb4cc0.png" 
-              alt="Paulstar Auto-Care Logo" 
-              className="h-10 md:h-12"
-            />
+          {/* Logo with hover effect */}
+          <NavLink 
+            to="/" 
+            className="flex items-center relative"
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+          >
+            <div className="overflow-hidden relative">
+              <img 
+                src="/lovable-uploads/5a3ada10-d36c-4d38-ae24-7e0489eb4cc0.png" 
+                alt="Paulstar Auto-Care Logo" 
+                className={`h-10 md:h-12 transition-all duration-300 ${
+                  logoHovered ? 'scale-110 transform' : 'scale-100'
+                }`}
+              />
+              {logoHovered && (
+                <div className="absolute inset-0 bg-blue-500/10 rounded-full animate-pulse-ring"></div>
+              )}
+            </div>
           </NavLink>
 
           {/* Desktop Navigation */}
