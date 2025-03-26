@@ -1,9 +1,9 @@
-
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import Gallery from '@/components/Gallery';
 import { Wrench, PaintBucket, Settings, ArrowRight, Phone, Calendar, Users, Hammer, Car } from 'lucide-react';
 import { setupScrollReveal } from '@/utils/animations';
 
@@ -71,6 +71,34 @@ const Index: React.FC = () => {
       rating: 4,
       text: 'Great regular maintenance service. They explained everything they were doing and even showed me the worn parts they replaced. Will definitely be back.',
     },
+  ];
+
+  const galleryImages = [
+    {
+      src: "/lovable-uploads/345f5c29-ac04-462f-afb7-a37e6ef4863d.png",
+      alt: "Car repair work",
+      caption: "Expert engine repair services"
+    },
+    {
+      src: "/lovable-uploads/fc7137cb-758e-4d76-a8ef-61a423d180c0.png",
+      alt: "Car painting process",
+      caption: "Professional auto painting"
+    },
+    {
+      src: "/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png",
+      alt: "Car modification",
+      caption: "Custom performance modifications"
+    },
+    {
+      src: "/lovable-uploads/b2dae066-82cf-4255-a062-0cbe92ed7092.png",
+      alt: "Car repair services",
+      caption: "Comprehensive mechanical repairs"
+    },
+    {
+      src: "/lovable-uploads/13b6d8c7-a433-4d8b-9b79-eaa0462265a6.png",
+      alt: "Regular servicing",
+      caption: "Routine maintenance and servicing"
+    }
   ];
 
   const stats = [
@@ -244,6 +272,9 @@ const Index: React.FC = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <Gallery images={galleryImages} />
+
       {/* CTA Section */}
       <section className="py-24 relative">
         <div className="absolute inset-0 parallax">
@@ -279,7 +310,6 @@ const Index: React.FC = () => {
               </button>
             </div>
             
-            {/* Added Contact Info */}
             <div className="mt-8 inline-block bg-yellow-400/90 rounded-lg px-6 py-3 text-blue-900 font-bold">
               Call us: 0799 608098 / 0721 314825
             </div>
