@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          {/* Logo with hover effect */}
+          {/* Logo with hover effect - transparent background */}
           <NavLink 
             to="/" 
             className="flex items-center relative"
@@ -65,9 +65,10 @@ const Navbar: React.FC = () => {
               <img 
                 src="/lovable-uploads/5a3ada10-d36c-4d38-ae24-7e0489eb4cc0.png" 
                 alt="Paulstar Auto-Care Logo" 
-                className={`h-10 md:h-12 transition-all duration-300 ${
+                className={`h-10 md:h-12 transition-all duration-300 mix-blend-multiply ${
                   logoHovered ? 'scale-110 transform' : 'scale-100'
                 }`}
+                style={{ filter: 'drop-shadow(0px 0px 3px rgba(37, 99, 235, 0.3))' }}
               />
               {logoHovered && (
                 <div className="absolute inset-0 bg-blue-500/10 rounded-full animate-pulse-ring"></div>
