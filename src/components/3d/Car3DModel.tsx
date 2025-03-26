@@ -91,7 +91,8 @@ export default function Car3DModel({ className = "" }: { className?: string }) {
           minPolarAngle={Math.PI / 3} 
           maxPolarAngle={Math.PI / 2.5} 
         />
-        <Environment preset="city" />
+        {/* Changed from Environment preset="city" to a simple color environment */}
+        <color attach="background" args={['#f1f5f9']} />
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
           <planeGeometry args={[20, 20]} />
           <meshStandardMaterial color="#f1f5f9" roughness={1} metalness={0} />
