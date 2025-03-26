@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
             <img 
               src="/lovable-uploads/a38ff821-3f72-4a68-b97f-7e567d02ebec.png" 
               alt="Paulstar Auto-Care Logo" 
-              className="h-12 md:h-16" // Increased from h-10 md:h-12 to h-12 md:h-16
+              className="h-16 md:h-20" // Increased from h-12 md:h-16 to h-16 md:h-20
             />
           </NavLink>
 
