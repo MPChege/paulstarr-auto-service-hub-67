@@ -37,10 +37,10 @@ const Booking: React.FC = () => {
         image="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3"
       />
 
-      {/* Booking Info Section */}
-      <section className="py-20">
+      {/* Booking Info Section - Reduced top padding from py-20 to py-10 */}
+      <section className="py-10">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Book Now</span>
             <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Easy Booking Process</h2>
             <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
@@ -48,7 +48,7 @@ const Booking: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {bookingInfo.map((info, index) => (
               <div 
                 key={index}
@@ -73,8 +73,8 @@ const Booking: React.FC = () => {
         </div>
       </section>
 
-      {/* Additional Info Section */}
-      <section className="py-20 bg-paulstarr-50">
+      {/* Additional Info Section - Reduced top padding from py-20 to py-10 and added negative margin-top */}
+      <section className="py-10 bg-paulstarr-50 mt-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
