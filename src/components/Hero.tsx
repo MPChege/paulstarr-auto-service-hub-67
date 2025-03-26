@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({
   subtitle,
   ctaText = 'Book Now',
   ctaLink = '/booking',
-  image = 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=60',
+  image,
   secondaryCta,
 }) => {
   const navigate = useNavigate();
@@ -29,18 +29,19 @@ const Hero: React.FC<HeroProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const isMobile = useIsMobile();
   
-  // Array of professional car images
+  // Array of Paulstar Auto-Care images
   const carImages = [
-    'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=60', // Toyota Land Cruiser
-    'https://images.unsplash.com/photo-1605893477799-b99e3b400cb6?auto=format&fit=crop&w=1200&q=60', // Mercedes GLE
-    'https://images.unsplash.com/photo-1669558698869-ac66c694f288?auto=format&fit=crop&w=1200&q=60', // Lexus
-    'https://images.unsplash.com/photo-1575650980311-5943dab4f57c?auto=format&fit=crop&w=1200&q=60', // Car maintenance
+    '/lovable-uploads/345f5c29-ac04-462f-afb7-a37e6ef4863d.png',
+    '/lovable-uploads/fc7137cb-758e-4d76-a8ef-61a423d180c0.png',
+    '/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png',
+    '/lovable-uploads/b2dae066-82cf-4255-a062-0cbe92ed7092.png',
+    '/lovable-uploads/13b6d8c7-a433-4d8b-9b79-eaa0462265a6.png',
   ];
 
   useEffect(() => {
     // Preload the initial image
     const img = new Image();
-    img.src = image;
+    img.src = carImages[0];
     img.onload = () => setIsImageLoaded(true);
     
     // Rotate through images every 5 seconds
@@ -49,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [image, carImages.length]);
+  }, []);
   
   // When image index changes, preload the new image
   useEffect(() => {
@@ -110,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({
       <div className="relative container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block px-3 py-1 md:px-4 md:py-1 rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 text-yellow-400 text-xs md:text-sm font-medium mb-4 md:mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}>
-            Premium Auto Services
+            Professional Auto Care with a difference
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 md:mb-6 opacity-0 animate-fade-up" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
             {title}
@@ -152,6 +153,14 @@ const Hero: React.FC<HeroProps> = ({
             aria-label={`Image ${index + 1}`}
           />
         ))}
+      </div>
+
+      {/* Contact Info Overlay - Added based on the images */}
+      <div className="absolute bottom-6 right-6 bg-yellow-400/90 rounded-lg px-4 py-3 text-sm md:text-base text-blue-900 font-medium shadow-lg">
+        <div className="text-center">
+          <p>Utawala, Eastern Bypass</p>
+          <p className="font-bold">0799 608098 / 0721 314825</p>
+        </div>
       </div>
 
       {/* Scroll indicator - hidden on small mobile */}

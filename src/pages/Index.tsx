@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero from '@/components/Hero';
@@ -18,33 +19,33 @@ const Index: React.FC = () => {
       title: 'Car Repairs',
       description: 'Expert repairs for all car makes and models. We diagnose and fix issues quickly to get you back on the road.',
       icon: <Wrench size={18} />,
-      image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3',
+      image: '/lovable-uploads/b2dae066-82cf-4255-a062-0cbe92ed7092.png',
       features: ['Engine Repair', 'Brake Service', 'Electric Systems', 'Suspension Work'],
-      pricing: '$50+',
+      pricing: 'KES 5,000+',
     },
     {
       title: 'Car Painting',
       description: 'Professional auto painting and color matching. Restore your car\'s appearance or give it a fresh new look.',
       icon: <PaintBucket size={18} />,
-      image: 'https://images.unsplash.com/photo-1603069260957-2facb1168ae0?ixlib=rb-4.0.3',
+      image: '/lovable-uploads/fc7137cb-758e-4d76-a8ef-61a423d180c0.png',
       features: ['Full Body Paint', 'Color Matching', 'Custom Finishes', 'Scratch Repair'],
-      pricing: '$500+',
+      pricing: 'KES 50,000+',
     },
     {
       title: 'Regular Servicing',
       description: 'Routine maintenance to keep your vehicle running smoothly and prevent costly repairs in the future.',
       icon: <Hammer size={18} />,
-      image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3',
+      image: '/lovable-uploads/13b6d8c7-a433-4d8b-9b79-eaa0462265a6.png',
       features: ['Oil Changes', 'Filter Replacement', 'Fluid Checks', 'Safety Inspection'],
-      pricing: '$80+',
+      pricing: 'KES 8,000+',
     },
     {
       title: 'Car Modifications',
       description: 'Custom modifications to enhance performance, aesthetics, and functionality of your vehicle.',
       icon: <Settings size={18} />,
-      image: 'https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-4.0.3',
+      image: '/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png',
       features: ['Performance Upgrades', 'Custom Exhaust', 'Interior Mods', 'Wheel Upgrades'],
-      pricing: '$250+',
+      pricing: 'KES 25,000+',
     }
   ];
 
@@ -82,8 +83,8 @@ const Index: React.FC = () => {
     <div className="w-full">
       {/* Hero Section */}
       <Hero
-        title="Expert Car Services With Premium Quality"
-        subtitle="Professional repairs, painting, servicing, and modifications for all vehicle makes and models"
+        title="Paulstar Auto-Care - Quality Service Guaranteed"
+        subtitle="Professional repairs, painting, servicing, and modifications at Utawala, Eastern Bypass"
         ctaText="Book an Appointment"
         ctaLink="/booking"
         secondaryCta={{ text: 'Explore Services', link: '/services' }}
@@ -136,7 +137,7 @@ const Index: React.FC = () => {
               <span className="inline-block px-3 py-1 rounded-full bg-white text-paulstarr-accent text-sm font-medium mb-4 reveal">Why Choose Us</span>
               <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-6 reveal">Premium Auto Services with Quality Guarantee</h2>
               <p className="text-paulstarr-600 mb-8 reveal">
-                At Paulstarr Auto Spares, we combine technical expertise with exceptional customer service. Our team of certified professionals uses state-of-the-art equipment and quality parts to ensure your vehicle receives the best care possible.
+                At Paulstar Auto-Care, we combine technical expertise with exceptional customer service. Our team of certified professionals uses state-of-the-art equipment and quality parts to ensure your vehicle receives the best care possible.
               </p>
               
               <div className="space-y-4 reveal">
@@ -146,7 +147,7 @@ const Index: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-paulstarr-900 mb-1">Certified Technicians</h3>
-                    <p className="text-paulstarr-600">Our team consists of ASE-certified technicians with years of experience.</p>
+                    <p className="text-paulstarr-600">Our team consists of certified technicians with years of experience.</p>
                   </div>
                 </div>
                 
@@ -182,8 +183,8 @@ const Index: React.FC = () => {
             <div className="relative reveal">
               <div className="relative rounded-xl overflow-hidden shadow-elevated">
                 <img 
-                  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Auto mechanic working" 
+                  src="/lovable-uploads/345f5c29-ac04-462f-afb7-a37e6ef4863d.png" 
+                  alt="Paulstar Auto-Care workshop" 
                   className="w-full h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-paulstarr-900/70 to-transparent"></div>
@@ -250,7 +251,7 @@ const Index: React.FC = () => {
             className="parallax-bg" 
             data-speed="0.3"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1635424710928-0544e8512eae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80')`,
+              backgroundImage: `url('/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png')`,
               backgroundPosition: 'center',
             }}
           ></div>
@@ -261,7 +262,7 @@ const Index: React.FC = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 reveal">Ready to Get Your Car Serviced?</h2>
             <p className="text-xl text-white/90 mb-8 reveal">
-              Book an appointment today and experience premium auto services with Paulstarr Auto Spares.
+              Book an appointment today and experience premium auto services with Paulstar Auto-Care.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 reveal">
               <button
@@ -276,6 +277,11 @@ const Index: React.FC = () => {
               >
                 Contact Us
               </button>
+            </div>
+            
+            {/* Added Contact Info */}
+            <div className="mt-8 inline-block bg-yellow-400/90 rounded-lg px-6 py-3 text-blue-900 font-bold">
+              Call us: 0799 608098 / 0721 314825
             </div>
           </div>
         </div>
