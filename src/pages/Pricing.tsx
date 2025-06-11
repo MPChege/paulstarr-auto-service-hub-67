@@ -1,299 +1,254 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Hero from '@/components/Hero';
 import PricingTable from '@/components/PricingTable';
 import { Link } from 'react-router-dom';
-import { CalendarDays, Clock, CreditCard, Wallet } from 'lucide-react';
+import { CalendarDays, Clock, Users, Star, Award, Shield, Wrench, Palette, Settings, Zap } from 'lucide-react';
 
 const Pricing: React.FC = () => {
-  const pricingItems = [
+  const [activeTab, setActiveTab] = useState('overview');
+
+  const serviceItems = [
     // Car Repairs
     {
-      service: 'Oil Change',
+      service: 'Complete Engine Diagnostics',
       category: 'repairs',
-      description: 'Full synthetic oil change with filter',
-      price: 'KES 5,500',
-      notes: 'Price may vary based on oil type and quantity required',
+      description: 'Advanced computer diagnostic scanning with detailed reporting and recommendations',
+      notes: 'Includes comprehensive system analysis and performance optimization suggestions',
     },
     {
-      service: 'Brake Service',
+      service: 'Professional Oil Change Service',
       category: 'repairs',
-      description: 'Brake pad replacement (per axle)',
-      priceRange: { min: 'KES 9,800', max: 'KES 18,500' },
-      notes: 'Additional costs for rotors if needed',
+      description: 'Premium synthetic oil change with high-quality filter replacement',
+      notes: 'We use only certified oils suitable for your specific vehicle model',
     },
     {
-      service: 'Engine Diagnostics',
+      service: 'Advanced Brake System Service',
       category: 'repairs',
-      description: 'Computer diagnostic scan',
-      price: 'KES 9,200',
+      description: 'Complete brake inspection, pad replacement, and system optimization',
+      notes: 'Safety-first approach with quality parts and professional installation',
     },
     {
-      service: 'Battery Replacement',
+      service: 'Electrical System Repair',
       category: 'repairs',
-      description: 'Including testing and installation',
-      priceRange: { min: 'KES 15,000', max: 'KES 25,000' },
-    },
-    {
-      service: 'Alternator Replacement',
-      category: 'repairs',
-      description: 'Parts and labor included',
-      priceRange: { min: 'KES 30,000', max: 'KES 50,000' },
-    },
-    {
-      service: 'Starter Replacement',
-      category: 'repairs',
-      description: 'Parts and labor included',
-      priceRange: { min: 'KES 25,000', max: 'KES 43,000' },
-    },
-    {
-      service: 'Toyota Timing Belt Replacement',
-      category: 'repairs',
-      description: 'For Toyota Corolla and similar models',
-      priceRange: { min: 'KES 20,000', max: 'KES 35,000' },
-    },
-    {
-      service: 'Subaru Head Gasket Repair',
-      category: 'repairs',
-      description: 'Complete head gasket replacement',
-      priceRange: { min: 'KES 75,000', max: 'KES 120,000' },
-    },
-    {
-      service: 'Mercedes Electrical System Diagnosis',
-      category: 'repairs',
-      description: 'Full electrical system check',
-      price: 'KES 15,000',
+      description: 'Expert diagnosis and repair of all automotive electrical components',
+      notes: 'Specialized in modern vehicle electrical systems and diagnostics',
     },
     
     // Painting Services
     {
-      service: 'Full Body Paint',
+      service: 'Premium Paint Restoration',
       category: 'painting',
-      description: 'Complete vehicle paint job',
-      priceRange: { min: 'KES 180,000', max: 'KES 420,000' },
-      notes: 'Price varies based on vehicle size and paint type',
+      description: 'Complete vehicle paint restoration with color matching and protection',
+      notes: 'Using premium automotive paints with long-lasting finish guarantee',
     },
     {
-      service: 'Panel Painting',
+      service: 'Ceramic Paint Protection',
       category: 'painting',
-      description: 'Single panel paint and repair',
-      priceRange: { min: 'KES 25,000', max: 'KES 60,000' },
+      description: 'Advanced ceramic coating for ultimate paint protection and shine',
+      notes: 'Professional-grade ceramic coating with multi-year protection',
     },
     {
-      service: 'Paint Protection',
+      service: 'Custom Paint Solutions',
       category: 'painting',
-      description: 'Ceramic coating application',
-      priceRange: { min: 'KES 60,000', max: 'KES 150,000' },
-    },
-    {
-      service: 'Scratch Repair',
-      category: 'painting',
-      description: 'Minor scratch and paint touch-up',
-      priceRange: { min: 'KES 6,000', max: 'KES 18,000' },
-    },
-    {
-      service: 'Toyota Color Matching',
-      category: 'painting',
-      description: 'Precise color matching for Toyota models',
-      price: 'KES 8,000',
-    },
-    {
-      service: 'Mercedes Premium Paint',
-      category: 'painting',
-      description: 'Premium paint for Mercedes-Benz vehicles',
-      priceRange: { min: 'KES 250,000', max: 'KES 450,000' },
+      description: 'Bespoke painting services for unique and custom vehicle finishes',
+      notes: 'From classic restorations to modern custom designs',
     },
     
     // Regular Servicing
     {
-      service: 'Basic Service',
+      service: 'Comprehensive Vehicle Service',
       category: 'servicing',
-      description: 'Oil change, filter replacement, inspection',
-      price: 'KES 9,800',
+      description: 'Complete multi-point inspection and maintenance service',
+      notes: 'Covers all major systems with detailed service report',
     },
     {
-      service: 'Full Service',
+      service: 'Climate Control Service',
       category: 'servicing',
-      description: 'Comprehensive vehicle check and service',
-      price: 'KES 22,000',
+      description: 'AC system maintenance, repair, and performance optimization',
+      notes: 'Includes refrigerant check, leak detection, and system cleaning',
     },
     {
-      service: 'Major Service',
+      service: 'Preventive Maintenance',
       category: 'servicing',
-      description: 'Complete vehicle overhaul',
-      priceRange: { min: 'KES 35,000', max: 'KES 60,000' },
-      notes: 'Includes all fluids, filters, and detailed inspection',
-    },
-    {
-      service: 'Air Conditioning Service',
-      category: 'servicing',
-      description: 'AC system check and recharge',
-      price: 'KES 15,000',
-    },
-    {
-      service: 'Toyota Corolla/Fielder Service',
-      category: 'servicing',
-      description: 'Specialized service for Toyota Corolla and Fielder models',
-      price: 'KES 12,000',
-    },
-    {
-      service: 'Toyota Prado/Land Cruiser Service',
-      category: 'servicing',
-      description: 'Full service for Toyota Prado and Land Cruiser',
-      price: 'KES 25,000',
-    },
-    {
-      service: 'Subaru Forester/Outback Service',
-      category: 'servicing',
-      description: 'Specialized service for Subaru models',
-      price: 'KES 18,000',
-    },
-    {
-      service: 'Mercedes C-Class/E-Class Service',
-      category: 'servicing',
-      description: 'Premium service for Mercedes-Benz vehicles',
-      priceRange: { min: 'KES 30,000', max: 'KES 45,000' },
+      description: 'Scheduled maintenance to keep your vehicle running smoothly',
+      notes: 'Customized maintenance schedule based on your driving patterns',
     },
     
     // Modifications
     {
-      service: 'Performance Exhaust',
+      service: 'Performance Enhancement',
       category: 'modifications',
-      description: 'Custom exhaust system installation',
-      priceRange: { min: 'KES 50,000', max: 'KES 150,000' },
+      description: 'Engine tuning and performance modifications for optimal power',
+      notes: 'Safe and reliable performance upgrades with warranty coverage',
     },
     {
-      service: 'ECU Tuning',
+      service: 'Suspension Upgrades',
       category: 'modifications',
-      description: 'Engine management optimization',
-      priceRange: { min: 'KES 35,000', max: 'KES 100,000' },
+      description: 'Custom suspension solutions for improved handling and comfort',
+      notes: 'Professional installation with alignment and testing included',
     },
     {
-      service: 'Suspension Upgrade',
+      service: 'Aesthetic Modifications',
       category: 'modifications',
-      description: 'Coilover or lowering spring installation',
-      priceRange: { min: 'KES 75,000', max: 'KES 180,000' },
-    },
-    {
-      service: 'Wheel Package',
-      category: 'modifications',
-      description: 'Custom wheels and tires',
-      priceRange: { min: 'KES 100,000', max: 'KES 300,000' },
-      notes: 'Price varies based on wheel and tire selection',
-    },
-    {
-      service: 'Toyota Hilux/Fortuner Off-Road Package',
-      category: 'modifications',
-      description: 'Complete off-road modification package',
-      priceRange: { min: 'KES 200,000', max: 'KES 500,000' },
-    },
-    {
-      service: 'Subaru WRX/STI Performance Tune',
-      category: 'modifications',
-      description: 'Performance enhancements for Subaru turbo models',
-      priceRange: { min: 'KES 120,000', max: 'KES 250,000' },
+      description: 'Custom styling and aesthetic enhancements for your vehicle',
+      notes: 'From subtle improvements to complete transformations',
     },
   ];
 
-  const paymentMethods = [
+  const features = [
     {
-      icon: <CreditCard className="w-6 h-6 text-paulstarr-accent" />,
-      title: 'Multiple Payment Options',
-      description: 'We accept M-Pesa, bank transfers, credit cards, and cash for your convenience.',
+      icon: <Award className="w-8 h-8 text-yellow-500" />,
+      title: 'Award-Winning Service',
+      description: 'Recognized for excellence in automotive care and customer satisfaction.',
     },
     {
-      icon: <CalendarDays className="w-6 h-6 text-paulstarr-accent" />,
-      title: 'Flexible Payment Plans',
-      description: 'Ask about our financing options for larger repairs and services.',
+      icon: <Shield className="w-8 h-8 text-green-500" />,
+      title: 'Quality Guarantee',
+      description: 'All work backed by comprehensive warranty and quality assurance.',
     },
     {
-      icon: <Clock className="w-6 h-6 text-paulstarr-accent" />,
-      title: 'Quick Processing',
-      description: 'Fast and secure payment processing to get you back on the road.',
+      icon: <Users className="w-8 h-8 text-blue-500" />,
+      title: 'Expert Technicians',
+      description: 'Certified professionals with years of specialized automotive experience.',
     },
     {
-      icon: <Wallet className="w-6 h-6 text-paulstarr-accent" />,
-      title: 'Price Match Guarantee',
-      description: "We'll match any comparable service price from authorized competitors in Nairobi.",
+      icon: <Clock className="w-8 h-8 text-purple-500" />,
+      title: 'Efficient Service',
+      description: 'Quick turnaround times without compromising on quality or attention to detail.',
     },
+  ];
+
+  const stats = [
+    { number: '2000+', label: 'Happy Customers', icon: <Users className="w-6 h-6" /> },
+    { number: '15+', label: 'Years Experience', icon: <Award className="w-6 h-6" /> },
+    { number: '24/7', label: 'Support Available', icon: <Clock className="w-6 h-6" /> },
+    { number: '100%', label: 'Satisfaction Rate', icon: <Star className="w-6 h-6" /> },
+  ];
+
+  const serviceCategories = [
+    { id: 'repairs', name: 'Repairs', icon: <Wrench className="w-5 h-5" />, color: 'bg-red-500' },
+    { id: 'painting', name: 'Painting', icon: <Palette className="w-5 h-5" />, color: 'bg-purple-500' },
+    { id: 'servicing', name: 'Servicing', icon: <Settings className="w-5 h-5" />, color: 'bg-blue-500' },
+    { id: 'modifications', name: 'Modifications', icon: <Zap className="w-5 h-5" />, color: 'bg-yellow-500' },
   ];
 
   return (
     <div className="w-full">
       {/* Hero Section */}
       <Hero
-        title="Transparent Pricing For Quality Service"
-        subtitle="Competitive rates for all our professional auto services in Kenya"
-        ctaText="Book Now"
-        ctaLink="/booking"
+        title="Premium Automotive Services"
+        subtitle="Experience excellence in every detail with our comprehensive automotive care solutions"
+        ctaText="Explore Services"
+        ctaLink="#services"
         image="https://images.unsplash.com/photo-1597766325363-8a88739265bb?ixlib=rb-4.0.3"
       />
 
-      {/* Pricing Table Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Our Pricing</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Service Price List</h2>
-            <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
-              Explore our comprehensive pricing for all services. All prices are in Kenyan Shillings and include labor unless otherwise noted.
-            </p>
-          </div>
-
-          <PricingTable items={pricingItems} />
-        </div>
-      </section>
-
-      {/* Payment Options Section */}
-      <section className="py-20 bg-paulstarr-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 rounded-full bg-white text-paulstarr-accent text-sm font-medium mb-4 reveal">Payment Methods</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Flexible Payment Options</h2>
-            <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
-              We offer various payment methods to make your service experience as convenient as possible.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {paymentMethods.map((method, index) => (
+      {/* Stats Section */}
+      <section className="py-16 bg-paulstarr-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3')] bg-cover bg-center opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="p-6 bg-white rounded-xl shadow-soft hover:shadow-elevated transition-all duration-300 reveal"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="text-center reveal"
+                style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="w-12 h-12 rounded-full bg-paulstarr-50 flex items-center justify-center mb-4">
-                  {method.icon}
+                <div className="w-16 h-16 bg-paulstarr-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                  {stat.icon}
                 </div>
-                <h3 className="text-lg font-medium text-paulstarr-900 mb-2">{method.title}</h3>
-                <p className="text-paulstarr-600">{method.description}</p>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-white/80">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Features Section */}
+      <section className="py-20 bg-paulstarr-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 rounded-full bg-white text-paulstarr-accent text-sm font-medium mb-4 reveal">Why Choose Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Excellence in Every Service</h2>
+            <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
+              Discover what sets us apart in the automotive service industry.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="text-center p-6 bg-white rounded-xl shadow-soft hover:shadow-elevated transition-all duration-300 transform hover:-translate-y-2 reveal"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="w-16 h-16 rounded-full bg-paulstarr-50 flex items-center justify-center mx-auto mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-paulstarr-900 mb-3">{feature.title}</h3>
+                <p className="text-paulstarr-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Categories */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-paulstarr-900 rounded-2xl p-12 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3')] bg-cover bg-center opacity-20"></div>
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 reveal">Need a Custom Quote?</h2>
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Our Expertise</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-4 reveal">Service Categories</h2>
+            <p className="max-w-2xl mx-auto text-paulstarr-600 reveal">
+              Comprehensive automotive solutions across all major service areas.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {serviceCategories.map((category, index) => (
+              <div 
+                key={category.id}
+                className="text-center p-6 bg-white rounded-xl shadow-soft hover:shadow-elevated transition-all duration-300 transform hover:-translate-y-2 reveal cursor-pointer"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className={`w-12 h-12 rounded-lg ${category.color} flex items-center justify-center mx-auto mb-4 text-white`}>
+                  {category.icon}
+                </div>
+                <h3 className="font-semibold text-paulstarr-900">{category.name}</h3>
+              </div>
+            ))}
+          </div>
+
+          {/* Service Showcase */}
+          <div id="services">
+            <PricingTable items={serviceItems} />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-paulstarr-900 to-paulstarr-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="relative">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 reveal">Ready to Experience Excellence?</h2>
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto reveal">
-                Contact us for a detailed estimate based on your specific vehicle and service needs.
+                Join thousands of satisfied customers who trust us with their automotive needs.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 reveal">
                 <Link
-                  to="/contact"
-                  className="px-8 py-3 bg-paulstarr-accent text-white font-medium rounded-md hover:bg-paulstarr-700 transition-all transform hover:translate-y-[-2px] hover:shadow-lg"
+                  to="/booking"
+                  className="px-8 py-4 bg-paulstarr-accent text-white font-medium rounded-lg hover:bg-paulstarr-700 transition-all transform hover:translate-y-[-2px] hover:shadow-xl"
                 >
-                  Get a Quote
+                  Book Your Service
                 </Link>
                 <Link
-                  to="/booking"
-                  className="px-8 py-3 bg-white text-paulstarr-900 font-medium rounded-md hover:bg-paulstarr-100 transition-all"
+                  to="/contact"
+                  className="px-8 py-4 bg-white text-paulstarr-900 font-medium rounded-lg hover:bg-paulstarr-100 transition-all"
                 >
-                  Book Service
+                  Contact Us
                 </Link>
               </div>
             </div>

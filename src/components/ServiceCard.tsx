@@ -10,7 +10,6 @@ interface ServiceCardProps {
   icon: React.ReactNode;
   image: string;
   features?: string[];
-  pricing?: string;
   link?: string;
   index: number;
 }
@@ -21,18 +20,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   image,
   features = [],
-  pricing,
   link = '/booking',
   index,
 }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const isMobile = useIsMobile();
-
-  // Format pricing to use KES
-  const formattedPricing = pricing ? (
-    pricing.includes('KES') ? pricing : pricing.replace('$', 'KES ')
-  ) : null;
 
   const handleCardClick = () => {
     if (isMobile) {
@@ -65,11 +58,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <h3 className="text-xl font-bold text-white">{title}</h3>
         </div>
         
-        <p className="text-white/90 mb-4">{description}</p>
+        <p className="text-white/90 mb-4 flex-grow">{description}</p>
         
         <div className="mt-auto">
-          {formattedPricing && <p className="font-semibold text-white mb-4">Starting at <span className="text-yellow-400">{formattedPricing}</span></p>}
-          
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -77,7 +68,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             }}
             className="w-full py-2 rounded-md transition-all duration-300 border border-yellow-400/50 bg-yellow-400/10 text-white hover:bg-yellow-400 hover:text-blue-900 flex items-center justify-center"
           >
-            View Details
+            Learn More
             <ArrowRight size={16} className="ml-2 transition-transform duration-300 transform group-hover:translate-x-1" />
           </button>
         </div>
@@ -93,8 +84,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </div>
         
         {features.length > 0 && (
-          <div className="mb-6">
-            <h4 className="text-sm font-medium text-yellow-400 mb-3">Services Included:</h4>
+          <div className="mb-6 flex-grow">
+            <h4 className="text-sm font-medium text-yellow-400 mb-3">What's Included:</h4>
             <ul className="space-y-2">
               {features.map((feature, idx) => (
                 <li key={idx} className="flex items-start">
@@ -107,8 +98,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         )}
         
         <div className="mt-auto">
-          {formattedPricing && <p className="font-medium text-white mb-4">Starting at <span className="text-yellow-400 font-bold">{formattedPricing}</span></p>}
-          
           <button
             onClick={(e) => {
               e.stopPropagation();
