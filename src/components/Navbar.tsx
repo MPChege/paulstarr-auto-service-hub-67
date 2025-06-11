@@ -6,21 +6,36 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
+      const currentScrollY = window.scrollY;
+      
+      // Update scrolled state
+      if (currentScrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+
+      // Handle navbar hide/show on scroll
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setHidden(true);
+      } else {
+        // Scrolling up
+        setHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     // Close mobile menu when route changes
@@ -47,9 +62,14 @@ const Navbar: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled 
-          ? 'bg-white shadow-md py-3' 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
           : 'bg-transparent py-5'
+      } ${
+        hidden ? '-translate-y-full' : 'translate-y-0'
       }`}
+      style={{ 
+        transition: 'transform 0.3s ease-in-out, background-color 0.4s ease, backdrop-filter 0.4s ease' 
+      }}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
@@ -58,7 +78,7 @@ const Navbar: React.FC = () => {
             <img 
               src="/lovable-uploads/a38ff821-3f72-4a68-b97f-7e567d02ebec.png" 
               alt="Paulstar Auto-Care Logo" 
-              className="h-16 md:h-20" // Increased from h-12 md:h-16 to h-16 md:h-20
+              className="h-16 md:h-20 transition-all duration-300 hover:scale-105" 
             />
           </NavLink>
 
@@ -77,11 +97,11 @@ const Navbar: React.FC = () => {
             
             <NavLink 
               to="/booking" 
-              className={`ml-4 px-5 py-2 rounded-md ${
+              className={`ml-4 px-5 py-2 rounded-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 transform ${
                 scrolled 
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white' 
-                  : 'bg-white text-blue-700'
-              } font-medium transition-all hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1`}
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-blue-600/30' 
+                  : 'bg-white text-blue-700 hover:shadow-white/30'
+              } font-medium`}
             >
               Book Now
             </NavLink>
@@ -91,7 +111,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className={`${scrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600 focus:outline-none`}
+              className={`${scrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600 focus:outline-none transition-colors duration-300`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               {isOpen ? (
@@ -106,19 +126,25 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Navigation */}
       <div 
-        className={`md:hidden fixed inset-0 z-40 bg-white transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-md transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: '64px' }}
       >
         <div className="h-full flex flex-col px-4 pt-8 pb-6 space-y-6">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) => 
-                `text-xl font-medium transition-all ${isActive ? 'text-blue-600' : 'text-gray-800'}`
+                `text-xl font-medium transition-all duration-300 hover:text-blue-600 transform hover:translate-x-2 ${
+                  isActive ? 'text-blue-600' : 'text-gray-800'
+                }`
               }
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                animation: isOpen ? 'fadeInLeft 0.5s ease forwards' : 'none'
+              }}
             >
               {item.name}
             </NavLink>
@@ -126,7 +152,7 @@ const Navbar: React.FC = () => {
           
           <NavLink 
             to="/booking" 
-            className="mt-4 py-3 w-full rounded-md bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium text-center shadow-lg"
+            className="mt-4 py-3 w-full rounded-md bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 transform"
           >
             Book Now
           </NavLink>
