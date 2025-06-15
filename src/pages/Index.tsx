@@ -21,7 +21,7 @@ const Index: React.FC = () => {
       icon: <Wrench size={18} />,
       image: '/lovable-uploads/b2dae066-82cf-4255-a062-0cbe92ed7092.png',
       features: ['Engine Repair', 'Brake Service', 'Electric Systems', 'Suspension Work'],
-      pricing: 'KES 5,000+',
+      // pricing: 'KES 5,000+',
     },
     {
       title: 'Car Painting',
@@ -29,7 +29,7 @@ const Index: React.FC = () => {
       icon: <PaintBucket size={18} />,
       image: '/lovable-uploads/fc7137cb-758e-4d76-a8ef-61a423d180c0.png',
       features: ['Full Body Paint', 'Color Matching', 'Custom Finishes', 'Scratch Repair'],
-      pricing: 'KES 50,000+',
+      // pricing: 'KES 50,000+',
     },
     {
       title: 'Regular Servicing',
@@ -37,7 +37,7 @@ const Index: React.FC = () => {
       icon: <Hammer size={18} />,
       image: '/lovable-uploads/13b6d8c7-a433-4d8b-9b79-eaa0462265a6.png',
       features: ['Oil Changes', 'Filter Replacement', 'Fluid Checks', 'Safety Inspection'],
-      pricing: 'KES 8,000+',
+      // pricing: 'KES 8,000+',
     },
     {
       title: 'Car Modifications',
@@ -45,7 +45,7 @@ const Index: React.FC = () => {
       icon: <Settings size={18} />,
       image: '/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png',
       features: ['Performance Upgrades', 'Custom Exhaust', 'Interior Mods', 'Wheel Upgrades'],
-      pricing: 'KES 25,000+',
+      // pricing: 'KES 25,000+',
     }
   ];
 
@@ -138,7 +138,6 @@ const Index: React.FC = () => {
                 icon={service.icon}
                 image={service.image}
                 features={service.features}
-                pricing={service.pricing}
                 link="/booking"
                 index={index}
               />
