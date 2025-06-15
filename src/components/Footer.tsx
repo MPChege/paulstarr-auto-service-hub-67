@@ -118,10 +118,10 @@ const Footer: React.FC = () => {
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6 text-sm">
                 <li>
-                  <a href="#" className="text-paulstarr-400 hover:text-white transition-colors">Privacy Policy</a>
+                  <Link to="/privacy" className="text-paulstarr-400 hover:text-white transition-colors">Privacy Policy</Link>
                 </li>
                 <li>
-                  <a href="#" className="text-paulstarr-400 hover:text-white transition-colors">Terms of Service</a>
+                  <Link to="/terms" className="text-paulstarr-400 hover:text-white transition-colors">Terms of Service</Link>
                 </li>
               </ul>
             </div>

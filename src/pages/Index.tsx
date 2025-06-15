@@ -119,7 +119,7 @@ const Index: React.FC = () => {
       />
 
       {/* Services Section */}
-      <section className="py-20 bg-white" id="services">
+      <section className="py-14 md:py-16 bg-white" id="services">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Our Services</span>
@@ -158,7 +158,7 @@ const Index: React.FC = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-paulstarr-50">
+      <section className="py-14 md:py-16 bg-paulstarr-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -246,7 +246,7 @@ const Index: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-14 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <span className="inline-block px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium mb-4 reveal">Testimonials</span>
@@ -276,7 +276,7 @@ const Index: React.FC = () => {
       <Gallery images={galleryImages} />
 
       {/* CTA Section */}
-      <section className="py-24 relative">
+      <section className="py-16 md:py-20 relative">
         <div className="absolute inset-0 parallax">
           <div 
             className="parallax-bg" 
