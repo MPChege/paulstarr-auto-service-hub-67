@@ -51,19 +51,23 @@ const Navbar: React.FC = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const heroRoutes = ['/', '/services', '/booking', '/contact', '/about', '/service-charter', '/our-staff'];
+  const hasHeroTop = heroRoutes.includes(location.pathname);
+  const visible = scrolled || !hasHeroTop;
+
   const getNavLinkClass = (isActive: boolean) => {
     return `relative px-3 py-2 text-base font-medium transition-all duration-300 hover:text-blue-600 group ${
-      isActive 
+      isActive
         ? 'text-blue-600'
-        : scrolled ? 'text-gray-800' : 'text-white'
+        : visible ? 'text-gray-800' : 'text-white'
     }`;
   };
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
+        visible
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
           : 'bg-transparent py-5'
       } ${
         hidden ? '-translate-y-full' : 'translate-y-0'
@@ -99,7 +103,7 @@ const Navbar: React.FC = () => {
             <NavLink
               to="/booking"
               className={`ml-4 px-5 py-2 rounded-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 transform ${
-                scrolled
+                visible
                   ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-blue-600/30'
                   : 'bg-white text-blue-700 hover:shadow-white/30'
               } font-medium`}
@@ -110,9 +114,9 @@ const Navbar: React.FC = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`${scrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600 focus:outline-none transition-colors duration-300`}
+              className={`${visible ? 'text-gray-800' : 'text-white'} hover:text-blue-600 focus:outline-none transition-colors duration-300`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
             >
               {isOpen ? (

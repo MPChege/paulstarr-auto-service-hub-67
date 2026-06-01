@@ -5,7 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
+import About from "./pages/About";
 import Services from "./pages/Services";
+import ServiceCharter from "./pages/ServiceCharter";
+import OurStaff from "./pages/OurStaff";
 import Pricing from "./pages/Pricing";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
@@ -136,7 +139,10 @@ const App = () => {
           <Layout>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/service-charter" element={<ServiceCharter />} />
+              <Route path="/our-staff" element={<OurStaff />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/booking" element={<Booking />} />
               <Route path="/contact" element={<Contact />} />
