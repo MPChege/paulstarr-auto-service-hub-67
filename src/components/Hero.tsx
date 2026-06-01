@@ -213,7 +213,7 @@ const Hero: React.FC<HeroProps> = ({
       <div className="absolute bottom-6 right-6 bg-yellow-400/90 rounded-lg px-4 py-3 text-sm md:text-base text-blue-900 font-medium shadow-lg reveal">
         <div className="text-center">
           <p>Utawala, Eastern Bypass</p>
-          <p className="font-bold">0799 608098 / 0721 314825</p>
+          <p className="font-bold">+254 726 243626</p>
         </div>
       </div>
 

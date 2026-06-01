@@ -16,36 +16,32 @@ const Index: React.FC = () => {
 
   const services = [
     {
-      title: 'Car Repairs',
-      description: 'Expert repairs for all car makes and models. We diagnose and fix issues quickly to get you back on the road.',
+      title: 'Engine Overhaul & Mechanical Repairs',
+      description: 'Full engine rebuilds and mechanical repairs that last. We show you the problem, explain why it happened, and fix it right the first time.',
       icon: <Wrench size={18} />,
       image: '/lovable-uploads/b2dae066-82cf-4255-a062-0cbe92ed7092.png',
-      features: ['Engine Repair', 'Brake Service', 'Electric Systems', 'Suspension Work'],
-      // pricing: 'KES 5,000+',
+      features: ['Engine Rebuilds', 'Clutch & Gearbox', 'Cooling System', 'Routine Maintenance'],
     },
     {
-      title: 'Car Painting',
-      description: 'Professional auto painting and color matching. Restore your car\'s appearance or give it a fresh new look.',
+      title: 'Panel Beating & Spray Painting',
+      description: 'Collision repairs that erase every trace of damage. Professional panel beating and spray painting to dealership standards.',
       icon: <PaintBucket size={18} />,
       image: '/lovable-uploads/fc7137cb-758e-4d76-a8ef-61a423d180c0.png',
-      features: ['Full Body Paint', 'Color Matching', 'Custom Finishes', 'Scratch Repair'],
-      // pricing: 'KES 50,000+',
+      features: ['Full Body Repair', 'Color Matching', 'Dent Removal', 'Spray Painting'],
     },
     {
-      title: 'Regular Servicing',
-      description: 'Routine maintenance to keep your vehicle running smoothly and prevent costly repairs in the future.',
+      title: 'Suspension & Steering Repairs',
+      description: "Nairobi's potholes destroy suspensions. We build heavy-duty setups built for rough roads so your car handles and rides properly.",
       icon: <Hammer size={18} />,
       image: '/lovable-uploads/13b6d8c7-a433-4d8b-9b79-eaa0462265a6.png',
-      features: ['Oil Changes', 'Filter Replacement', 'Fluid Checks', 'Safety Inspection'],
-      // pricing: 'KES 8,000+',
+      features: ['Shock Absorbers', 'Wheel Alignment', 'Steering Rack', 'Bushings & Joints'],
     },
     {
-      title: 'Car Modifications',
-      description: 'Custom modifications to enhance performance, aesthetics, and functionality of your vehicle.',
+      title: 'Computerized Diagnostics',
+      description: 'We scan, diagnose and give you photos and printouts before we fix anything — no mysteries, no inflated quotes.',
       icon: <Settings size={18} />,
       image: '/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png',
-      features: ['Performance Upgrades', 'Custom Exhaust', 'Interior Mods', 'Wheel Upgrades'],
-      // pricing: 'KES 25,000+',
+      features: ['OBD Scanning', 'Fault Code Reading', 'Pre-purchase Inspection', 'Electrical Faults'],
     }
   ];
 
@@ -102,7 +98,7 @@ const Index: React.FC = () => {
   ];
 
   const stats = [
-    { value: '10+', label: 'Years of Experience', icon: <Users size={24} className="text-paulstarr-accent" /> },
+    { value: '12+', label: 'Years of Experience', icon: <Users size={24} className="text-paulstarr-accent" /> },
     { value: '5000+', label: 'Cars Serviced', icon: <Car size={24} className="text-paulstarr-accent" /> },
     { value: '97%', label: 'Customer Satisfaction', icon: <Phone size={24} className="text-paulstarr-accent" /> },
   ];
@@ -111,8 +107,8 @@ const Index: React.FC = () => {
     <div className="w-full">
       {/* Hero Section */}
       <Hero
-        title="Paulstar Auto-Care - Quality Service Guaranteed"
-        subtitle="Professional repairs, painting, servicing, and modifications at Utawala, Eastern Bypass"
+        title="Fixing Cars & Trucks For Over 12 Years"
+        subtitle="Engine rebuilds, panel beating, diagnostics & mechanical repairs — all under one roof. Dealership precision at garage prices, Utawala Eastern Bypass."
         ctaText="Book an Appointment"
         ctaLink="/booking"
         secondaryCta={{ text: 'Explore Services', link: '/services' }}
@@ -162,39 +158,39 @@ const Index: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-white text-paulstarr-accent text-sm font-medium mb-4 reveal">Why Choose Us</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-6 reveal">Premium Auto Services with Quality Guarantee</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-6 reveal">We Fix the Problems Nairobi Creates</h2>
               <p className="text-paulstarr-600 mb-8 reveal">
-                At Paulstar Auto-Care, we combine technical expertise with exceptional customer service. Our team of certified professionals uses state-of-the-art equipment and quality parts to ensure your vehicle receives the best care possible.
+                Utawala's potholes destroy suspensions. Stop-and-go traffic from Mombasa Road to Thika Road kills clutches and overheats engines. Dusty conditions clog air filters faster than anywhere else. 12 years in this city taught us what actually breaks — and how to make it last.
               </p>
-              
+
               <div className="space-y-4 reveal">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-soft">
                     <Check size={20} className="text-paulstarr-accent" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-paulstarr-900 mb-1">Certified Technicians</h3>
-                    <p className="text-paulstarr-600">Our team consists of certified technicians with years of experience.</p>
+                    <h3 className="text-lg font-medium text-paulstarr-900 mb-1">Transparent Before We Touch It</h3>
+                    <p className="text-paulstarr-600">We show you photos and scans of what's broken before we fix it — and return the old parts as proof.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-soft">
                     <Check size={20} className="text-paulstarr-accent" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-paulstarr-900 mb-1">Quality Parts</h3>
-                    <p className="text-paulstarr-600">We use only high-quality OEM and aftermarket parts for all repairs.</p>
+                    <h3 className="text-lg font-medium text-paulstarr-900 mb-1">One Roof, All Services</h3>
+                    <p className="text-paulstarr-600">Engine rebuilds, panel beating, diagnostics, and mechanical repairs — stop bouncing between workshops.</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-soft">
                     <Check size={20} className="text-paulstarr-accent" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-paulstarr-900 mb-1">Service Guarantee</h3>
-                    <p className="text-paulstarr-600">All our work comes with a satisfaction guarantee and warranty.</p>
+                    <h3 className="text-lg font-medium text-paulstarr-900 mb-1">Dealership Precision, Garage Prices</h3>
+                    <p className="text-paulstarr-600">Expert service across all major car brands without the dealership markup.</p>
                   </div>
                 </div>
               </div>
@@ -234,8 +230,8 @@ const Index: React.FC = () => {
                 <div className="flex items-center">
                   <Calendar size={24} className="text-paulstarr-accent mr-3" />
                   <div>
-                    <p className="text-sm text-paulstarr-500">Available</p>
-                    <p className="font-medium text-paulstarr-900">Mon-Sat, 8AM-6PM</p>
+                    <p className="text-sm text-paulstarr-500">Working Hours</p>
+                    <p className="font-medium text-paulstarr-900">Mon–Sat, 8:00 AM – 6:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -292,7 +288,7 @@ const Index: React.FC = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 reveal">Ready to Get Your Car Serviced?</h2>
             <p className="text-xl text-white/90 mb-8 reveal">
-              Book an appointment today and experience premium auto services with Paulstar Auto-Care.
+              Stop bouncing between workshops. Get engine rebuilds, panel beating, diagnostics, and mechanical repairs all under one roof — done right the first time.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 reveal">
               <button
@@ -310,7 +306,7 @@ const Index: React.FC = () => {
             </div>
             
             <div className="mt-8 inline-block bg-yellow-400/90 rounded-lg px-6 py-3 text-blue-900 font-bold">
-              Call us: 0799 608098 / 0721 314825
+              Priority Service: +254 726 243626
             </div>
           </div>
         </div>

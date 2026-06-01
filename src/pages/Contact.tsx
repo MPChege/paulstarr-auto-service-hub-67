@@ -10,7 +10,11 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Our Location',
-      details: ['Paulstar Auto Care Limited', 'Utawala, Nairobi, Kenya'],
+      details: [
+        'Utawala along the Eastern Bypass,',
+        'opposite Fun City Gardens & next to',
+        'BE Petrol Station, Nairobi 00100, Kenya.',
+      ],
       action: {
         text: 'Get Directions',
         link: 'https://www.google.com/maps/place/Paulstar+auto+care-+limited/@-1.2751665,36.9728319,17z',
@@ -19,25 +23,25 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Phone Number',
-      details: ['+234 1 280 0471', '+234 803 720 0001'],
+      details: ['+254 726 243626'],
       action: {
         text: 'Call Us',
-        link: 'tel:+2348037200001',
+        link: 'tel:+254726243626',
       },
     },
     {
       icon: <Mail className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Email Address',
-      details: ['info@paulstarautocare.com', 'service@paulstarautocare.com'],
+      details: ['info@paulstarautocare.co.ke'],
       action: {
         text: 'Send Email',
-        link: 'mailto:info@paulstarautocare.com',
+        link: 'mailto:info@paulstarautocare.co.ke',
       },
     },
     {
       icon: <Clock className="w-6 h-6 text-paulstarr-accent" />,
       title: 'Business Hours',
-      details: ['Monday - Friday: 8:00 AM - 6:00 PM', 'Saturday: 9:00 AM - 3:00 PM', 'Sunday: Closed'],
+      details: ['Week Days: 8:00 AM – 6:00 PM', 'Saturday: 8:00 AM – 6:00 PM', 'Sunday: Closed'],
       action: {
         text: 'Book Appointment',
         link: '/booking',
@@ -64,10 +68,9 @@ const Contact: React.FC = () => {
       {/* Hero Section */}
       <Hero
         title="Get In Touch With Us"
-        subtitle="We're here to provide quality auto services at the best prices"
+        subtitle="Honest diagnostics, transparent quotes, and repairs done right the first time. Call us or drop by Utawala, Eastern Bypass."
         ctaText="Call Now"
-        ctaLink="tel:+2348037200001"
-        image="https://images.unsplash.com/photo-1486927678348-e44d54e12b26?ixlib=rb-4.0.3"
+        ctaLink="tel:+254726243626"
       />
 
       {/* Contact Information Section */}
@@ -172,7 +175,7 @@ const Contact: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
-            {["Vehicle Maintenance", "Auto Diagnostics", "Engine Repair", "Brake Services", "Electrical Repairs", "Paint Services"].map((service, index) => (
+            {["Engine Overhaul & Mechanical Repairs", "Panel Beating & Spray Painting", "Suspension & Steering Repairs", "Brake System Service", "Computerized Diagnostics", "Electrical System Repairs"].map((service, index) => (
               <div key={index} className="p-6 border border-paulstarr-100 rounded-lg shadow-soft hover:shadow-elevated transition-all">
                 <h3 className="text-lg font-medium text-paulstarr-900 mb-2">{service}</h3>
                 <p className="text-paulstarr-600">Professional and timely service from experienced technicians.</p>
@@ -200,10 +203,10 @@ const Contact: React.FC = () => {
                   Book Now
                 </Link>
                 <a
-                  href="tel:+2348037200001"
+                  href="tel:+254726243626"
                   className="px-8 py-3 bg-white text-paulstarr-900 font-medium rounded-md hover:bg-paulstarr-100 transition-all"
                 >
-                  Call Us
+                  Call +254 726 243626
                 </a>
               </div>
             </div>

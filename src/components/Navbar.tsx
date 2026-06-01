@@ -44,9 +44,10 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Pricing', path: '/pricing' },
-    { name: 'Booking', path: '/booking' },
+    { name: 'Service Charter', path: '/service-charter' },
+    { name: 'Our Staff', path: '/our-staff' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -95,15 +96,15 @@ const Navbar: React.FC = () => {
               </NavLink>
             ))}
             
-            <NavLink 
-              to="/booking" 
+            <NavLink
+              to="/booking"
               className={`ml-4 px-5 py-2 rounded-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 transform ${
-                scrolled 
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-blue-600/30' 
+                scrolled
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:shadow-blue-600/30'
                   : 'bg-white text-blue-700 hover:shadow-white/30'
               } font-medium`}
             >
-              Book Now
+              Free Quote
             </NavLink>
           </div>
 
@@ -150,11 +151,11 @@ const Navbar: React.FC = () => {
             </NavLink>
           ))}
           
-          <NavLink 
-            to="/booking" 
+          <NavLink
+            to="/booking"
             className="mt-4 py-3 w-full rounded-md bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium text-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 transform"
           >
-            Book Now
+            Free Quote
           </NavLink>
         </div>
       </div>

@@ -10,147 +10,70 @@ const Services: React.FC = () => {
     setupScrollReveal('.reveal');
   }, []);
 
-  // Service categories
   const categories = [
     {
-      id: 'repairs',
-      title: 'Car Repairs',
-      description: 'Our certified technicians provide comprehensive repair services to fix any issues with your vehicle.',
-      image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3',
+      id: 'engine-mechanical',
+      title: 'Engine Overhaul & Mechanical Repairs',
+      description: 'Full engine rebuilds and mechanical repairs backed by proof you can see and hold in your hands.',
+      image: '/lovable-uploads/b2dae066-82cf-4255-a062-0cbe92ed7092.png',
       icon: <Wrench size={24} />,
       services: [
-        {
-          name: 'Engine Repair',
-          description: 'Complete diagnostics and repair of engine issues, from minor fixes to major overhauls.',
-          pricing: 'From KES 8,000',
-        },
-        {
-          name: 'Brake Service',
-          description: 'Inspection and repair of brake pads, rotors, calipers, and brake lines to ensure your safety.',
-          pricing: 'From KES 6,000',
-        },
-        {
-          name: 'Electrical System',
-          description: 'Troubleshooting and repair of electrical issues, including battery, alternator, and starter problems.',
-          pricing: 'From KES 5,000',
-        },
-        {
-          name: 'Suspension & Steering',
-          description: 'Repair and replacement of suspension components for a smoother ride and better handling.',
-          pricing: 'From KES 7,500',
-        },
-        {
-          name: 'Transmission Repair',
-          description: 'Expert diagnosis and repair of manual and automatic transmission problems.',
-          pricing: 'From KES 15,000',
-        },
-        {
-          name: 'AC & Heating',
-          description: 'Repair and maintenance of your vehicle\'s climate control system for year-round comfort.',
-          pricing: 'From KES 9,000',
-        },
+        { name: 'Engine Overhaul & Rebuild', description: 'Complete engine strip-down, inspection, and rebuild to factory spec. Old parts returned as proof.' },
+        { name: 'Cooling System Service', description: 'Radiator flush, thermostat replacement, coolant refresh — prevents overheating in Nairobi traffic.' },
+        { name: 'Clutch & Transmission Repairs', description: 'Clutch replacement, gearbox rebuild, and automatic transmission servicing for all makes.' },
+        { name: 'Routine Service & Maintenance', description: 'Oil changes, filters, spark plugs, and full vehicle health checks to keep breakdowns away.' },
       ],
     },
     {
-      id: 'painting',
-      title: 'Car Painting',
-      description: 'Premium auto painting services to restore your car\'s appearance or give it a completely new look.',
-      image: 'https://images.unsplash.com/photo-1603069260957-2facb1168ae0?ixlib=rb-4.0.3',
+      id: 'panel-beating',
+      title: 'Panel Beating & Spray Painting',
+      description: 'Collision repairs that erase every trace of damage, finished to dealership standards.',
+      image: '/lovable-uploads/fc7137cb-758e-4d76-a8ef-61a423d180c0.png',
       icon: <PaintBucket size={24} />,
       services: [
-        {
-          name: 'Full Body Paint',
-          description: 'Complete repaint of your vehicle with premium paint and clear coat for lasting protection.',
-          pricing: 'From KES 120,000',
-        },
-        {
-          name: 'Color Matching',
-          description: 'Precise color matching technology to ensure repairs blend seamlessly with your existing paint.',
-          pricing: 'From KES 15,000',
-        },
-        {
-          name: 'Custom Finishes',
-          description: 'Specialty paint finishes including metallic, pearl, matte, and custom color options.',
-          pricing: 'From KES 150,000',
-        },
-        {
-          name: 'Scratch & Dent Repair',
-          description: 'Repair of scratches, dents, and minor collision damage with paint touch-up.',
-          pricing: 'From KES 8,000',
-        },
+        { name: 'Panel Beating', description: 'Frame straightening and panel reshaping after accidents or impact damage — no trace left behind.' },
+        { name: 'Full Spray Painting', description: 'Complete vehicle repaint with matched colour, primer coat, and UV-resistant clear finish.' },
+        { name: 'Dent & Scratch Repair', description: 'Localised dent removal and scratch touch-up for minor collision and parking damage.' },
+        { name: 'Colour Matching', description: 'Computerised colour matching ensures seamless blends with factory paint on any panel.' },
       ],
     },
     {
-      id: 'servicing',
-      title: 'Regular Servicing',
-      description: 'Routine maintenance services to keep your vehicle running smoothly and prevent costly repairs.',
-      image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3',
+      id: 'suspension-steering',
+      title: 'Suspension & Steering Repairs',
+      description: "Built for Nairobi's roads — heavy-duty repairs that handle potholes, rough terrain and constant loading.",
+      image: '/lovable-uploads/af2ec558-cf59-4376-86d2-c458f9815053.png',
       icon: <Hammer size={24} />,
       services: [
-        {
-          name: 'Oil Change',
-          description: 'Regular oil and filter changes using high-quality oils to keep your engine running smoothly.',
-          pricing: 'From KES 3,000',
-        },
-        {
-          name: 'Tune-Up',
-          description: 'Comprehensive engine tune-up service including spark plugs, filters, and system checks.',
-          pricing: 'From KES 9,000',
-        },
-        {
-          name: 'Tire Service',
-          description: 'Tire rotation, balancing, and alignment to extend tire life and improve handling.',
-          pricing: 'From KES 4,000',
-        },
-        {
-          name: 'Fluid Service',
-          description: 'Inspection and replacement of engine fluids including coolant, brake fluid, and transmission fluid.',
-          pricing: 'From KES 5,000',
-        },
-        {
-          name: 'Battery Service',
-          description: 'Battery testing, charging, and replacement to ensure reliable starts every time.',
-          pricing: 'From KES 2,500',
-        },
+        { name: 'Shock Absorber Replacement', description: 'OEM and heavy-duty aftermarket shocks for smooth riding on rough Nairobi roads.' },
+        { name: 'Wheel Alignment & Balancing', description: 'Computer-aided alignment to prevent uneven tyre wear and improve steering precision.' },
+        { name: 'Steering Rack & Column Repair', description: 'Full steering system inspection and repair — power steering fluid, rack, and column joints.' },
+        { name: 'Bushings, Ball Joints & Control Arms', description: 'Replacement of worn suspension linkages that cause vibration, pulling, and tyre wear.' },
       ],
     },
     {
-      id: 'modifications',
-      title: 'Car Modifications',
-      description: 'Custom modifications to enhance your vehicle\'s performance, aesthetics, and functionality.',
-      image: 'https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-4.0.3',
+      id: 'brake-system',
+      title: 'Brake System Service',
+      description: 'Brake systems built for constant stopping in Nairobi traffic — safety you can feel and trust.',
+      image: '/lovable-uploads/13b6d8c7-a433-4d8b-9b79-eaa0462265a6.png',
       icon: <Settings size={24} />,
       services: [
-        {
-          name: 'Performance Upgrades',
-          description: 'Engine performance modifications including air intakes, exhausts, and ECU tuning.',
-          pricing: 'From KES 25,000',
-        },
-        {
-          name: 'Custom Exhaust',
-          description: 'Custom exhaust system design and installation for improved sound and performance.',
-          pricing: 'From KES 35,000',
-        },
-        {
-          name: 'Suspension Upgrades',
-          description: 'Lowering springs, coilovers, and performance shock absorbers for better handling.',
-          pricing: 'From KES 40,000',
-        },
-        {
-          name: 'Interior Customization',
-          description: 'Custom upholstery, audio systems, lighting, and convenience feature installation.',
-          pricing: 'From KES 20,000',
-        },
-        {
-          name: 'Wheel & Tire Packages',
-          description: 'Custom wheels and performance tires to improve looks and handling.',
-          pricing: 'From KES 80,000',
-        },
-        {
-          name: 'Body Kits & Styling',
-          description: 'Aerodynamic body kits, spoilers, and custom styling elements to enhance appearance.',
-          pricing: 'From KES 50,000',
-        },
+        { name: 'Brake Pad & Disc Replacement', description: 'High-quality pads and discs for all vehicle types — we inspect before quoting.' },
+        { name: 'Brake Fluid Flush', description: 'Old brake fluid attracts moisture and reduces stopping power. We flush and refill to spec.' },
+        { name: 'ABS System Diagnosis & Repair', description: 'Scan and repair ABS faults to restore electronic braking safety systems.' },
+        { name: 'Handbrake & Cable Adjustment', description: 'Cable adjustment and drum shoe replacement for reliable parking brake performance.' },
+      ],
+    },
+    {
+      id: 'diagnostics-electrical',
+      title: 'Computerized Diagnostics & Electrical Repairs',
+      description: 'We scan, show you the fault with photos, and explain it before we touch anything.',
+      image: '/lovable-uploads/345f5c29-ac04-462f-afb7-a37e6ef4863d.png',
+      icon: <Settings size={24} />,
+      services: [
+        { name: 'OBD Diagnostic Scan', description: 'Full ECU scan across all vehicle systems — engine, transmission, ABS, airbags and more.' },
+        { name: 'Electrical System Repairs', description: 'Wiring faults, short circuits, fuse replacements, and component-level electrical repairs.' },
+        { name: 'Battery & Alternator Testing', description: 'Load-test battery health, check alternator output, and replace if needed.' },
+        { name: 'Pre-Purchase Inspection', description: 'Thorough mechanical and electrical check before you buy a used car — know what you\'re getting.' },
       ],
     },
   ];
@@ -159,11 +82,10 @@ const Services: React.FC = () => {
     <div className="w-full">
       {/* Hero Section */}
       <Hero
-        title="Our Comprehensive Services"
-        subtitle="Expert auto services for all your vehicle needs"
-        ctaText="Book Now"
+        title="Our Services"
+        subtitle="Engine rebuilds, panel beating, diagnostics and mechanical repairs — dealership precision at garage prices, Utawala Eastern Bypass."
+        ctaText="Get a Free Quote"
         ctaLink="/booking"
-        image="https://images.unsplash.com/photo-1562259929-75edcbcfd2b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
       />
 
       {/* Services Overview */}
@@ -207,16 +129,11 @@ const Services: React.FC = () => {
                   <div className={`${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
                     <div className="space-y-6">
                       {category.services.map((service, serviceIndex) => (
-                        <div 
+                        <div
                           key={serviceIndex}
                           className="p-6 bg-white rounded-xl border border-paulstarr-100 shadow-soft hover:shadow-elevated transition-all duration-300"
                         >
-                          <div className="flex justify-between items-start mb-2">
-                            <h4 className="text-lg font-semibold text-paulstarr-900">{service.name}</h4>
-                            <span className="px-3 py-1 rounded-full bg-paulstarr-50 text-paulstarr-accent text-sm font-medium">
-                              {service.pricing}
-                            </span>
-                          </div>
+                          <h4 className="text-lg font-semibold text-paulstarr-900 mb-2">{service.name}</h4>
                           <p className="text-paulstarr-600">{service.description}</p>
                         </div>
                       ))}
@@ -235,9 +152,9 @@ const Services: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-white text-paulstarr-accent text-sm font-medium mb-4 reveal">Our Guarantee</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-6 reveal">Quality Service Guarantee</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-paulstarr-900 mb-6 reveal">The Paulstar Promise</h2>
               <p className="text-paulstarr-600 mb-8 reveal">
-                We stand behind our work with a comprehensive service guarantee. Our team of certified professionals ensures that every job is completed to the highest standards of quality and craftsmanship.
+                For 12 years, Paulstar Auto-Care has been the garage Nairobi drivers trust when honesty matters more than markup. Every vehicle gets the same obsessive care and transparent service. No runaround. No surprise bills.
               </p>
 
               <div className="space-y-4 reveal">
@@ -246,8 +163,8 @@ const Services: React.FC = () => {
                     <Check size={20} className="text-paulstarr-accent" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-paulstarr-900">Warranty on Parts & Labor</h3>
-                    <p className="text-paulstarr-600">All repairs come with a comprehensive warranty on both parts and labor.</p>
+                    <h3 className="text-lg font-medium text-paulstarr-900">Show You Before We Fix It</h3>
+                    <p className="text-paulstarr-600">Photos and diagnostic scans shared with you before any work begins — and old parts returned as proof.</p>
                   </div>
                 </div>
 
@@ -256,8 +173,8 @@ const Services: React.FC = () => {
                     <Check size={20} className="text-paulstarr-accent" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-paulstarr-900">Transparent Pricing</h3>
-                    <p className="text-paulstarr-600">No hidden fees or surprises. We provide detailed estimates before starting work.</p>
+                    <h3 className="text-lg font-medium text-paulstarr-900">Transparent Quotes, No Surprises</h3>
+                    <p className="text-paulstarr-600">Clear pricing before we start. No inflated quotes, no mystery charges.</p>
                   </div>
                 </div>
 
@@ -266,8 +183,8 @@ const Services: React.FC = () => {
                     <Check size={20} className="text-paulstarr-accent" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-medium text-paulstarr-900">Expert Technicians</h3>
-                    <p className="text-paulstarr-600">Our ASE-certified technicians have years of experience and continuous training.</p>
+                    <h3 className="text-lg font-medium text-paulstarr-900">Expert Technicians, All Major Brands</h3>
+                    <p className="text-paulstarr-600">Our team treats your car like it's their own — delivering expert service across all major car brands.</p>
                   </div>
                 </div>
               </div>
